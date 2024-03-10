@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets\\icones\\home_icon-icons.com_73532.png"
     },
     {
+      "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\icones\\icone-menu.png",
+      "PackagePath": "staticwebassets\\icones\\icone-menu.png"
+    },
+    {
+      "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\icones\\like_favorite_heart_5759.ico",
+      "PackagePath": "staticwebassets\\icones\\like_favorite_heart_5759.ico"
+    },
+    {
       "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\icones\\search.png",
       "PackagePath": "staticwebassets\\icones\\search.png"
     },

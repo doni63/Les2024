@@ -235,6 +235,7 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\o
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.MvcApplicationPartsAssemblyInfo.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.RazorAssemblyInfo.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.RazorAssemblyInfo.cs
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.sourcelink.json
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\staticwebassets.build.json
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\staticwebassets.development.json
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\staticwebassets\msbuild.SwitchSelect.Microsoft.AspNetCore.StaticWebAssets.props

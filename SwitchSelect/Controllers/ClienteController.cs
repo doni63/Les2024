@@ -19,6 +19,11 @@ namespace SwitchSelect.Controllers
             return View();
         }
 
+        public IActionResult PerfilUsuario()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Create(Cliente cliente)
         {

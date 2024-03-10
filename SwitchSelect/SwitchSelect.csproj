@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\FinalizarPedidoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Views\MetodoPagamento\Index.cshtml~RF8f68e.TMP" />
   </ItemGroup>
 

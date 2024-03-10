@@ -35,36 +35,39 @@
                         </li>
 
                         <li class="nav-item" style="margin-right: 5%">
-                            <a class="nav-link header-class-font text-white" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house fs-3"></i></a>
+                            <a class="nav-link header-class-font text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house fs-3"></i>
+                            </a>
                         </li>
 
                         <li class="nav-item" style="margin-right:10%">
                             <div class="input-group nav-input">
                                 <input type="text" class="form-control " asp-area="" asp-controller="Home" asp-action="PesquisarJogo" placeholder="O que você quer Jogar?" />
                                 <span class="input-group-text">
-                                    <img src="~/icones/search.png"/>
+                                    <img src="~/icones/search.png" />
                                 </span>
                             </div>
                         </li>
 
                         <li class="nav-item" style="margin-right: 10%">
-                            <a class="nav-link header-class-font text-white" asp-area="" asp-controller="Home" asp-action=""><i class="bi bi-person fs-3"></i></a>
+                            <a class="nav-link header-class-font text-white" asp-area="" asp-controller="Cliente" asp-action="PerfilUsuario">
+                                <i class="bi bi-person fs-3"></i>
+                            </a>
                         </li>
 
                         <li class="nav-item" style="margin-right: 10%">
-                            <span class="input-group-text">
-                                
-                                <img src="~/icones/favorito.png" />
-                            </span>
+                            <a class="nav-link header-class-font text-white">
+                                <i class="bi bi-heart fs-3"></i>
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <span class="input-group-text">
-                                <img src="~/icones/carrinho-de-compras.png" />
-                                <span id="cart-count">0</span>
-                            </span>
+                            <a class="nav-link header-class-font text-white" asp-controller="CarrinhoDeCompra" asp-action="Carrinho">
+                                <i class="bi bi-cart fs-3"></i>
+                                <span id="cart-count"></span>
+                            </a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -88,28 +91,29 @@
 
     <!--Contador de produtos-->
     <script>
-      /*  document.addEventListener('DOMContentLoaded', function () {
-            var addToCartButton = document.querySelector('button[data-bs-target="#carrinhoModal"]');
-            var cartCountDisplay = document.getElementById('cart-count');
 
-            // Atualiza a contagem do carrinho com base no valor armazenado ao carregar a página.
-            function updateCartCount() {
-                var savedCount = parseInt(localStorage.getItem('cartCount') || '0');
-                cartCountDisplay.textContent = savedCount;
-            }
+    //     document.addEventListener('DOMContentLoaded', function () {
+    //         var addToCartButton = document.querySelector('button[data-bs-target="#carrinhoModal"]');
+    //         var cartCountDisplay = document.getElementById('cart-count');
 
-            // Chamada inicial para definir o valor correto ao carregar a página.
-            updateCartCount();
+    //         // Atualiza a contagem do carrinho com base no valor armazenado ao carregar a página.
+    //         function updateCartCount() {
+    //             var savedCount = parseInt(localStorage.getItem('cartCount') || '0');
+    //             cartCountDisplay.textContent = savedCount;
+    //         }
 
-            if (addToCartButton) {
-                addToCartButton.addEventListener('click', function () {
-                    var currentCount = parseInt(localStorage.getItem('cartCount') || '0') + 1;
-                    localStorage.setItem('cartCount', currentCount.toString());
-                    cartCountDisplay.textContent = currentCount;
-                });
-            }
-        });*/
-    </script>
+    //         // Chamada inicial para definir o valor correto ao carregar a página.
+    //         updateCartCount();
+
+    //         if (addToCartButton) {
+    //             addToCartButton.addEventListener('click', function () {
+    //                 var currentCount = parseInt(localStorage.getItem('cartCount') || '0') + 1;
+    //                 localStorage.setItem('cartCount', currentCount.toString());
+    //                 cartCountDisplay.textContent = currentCount;
+    //             });
+    //         }
+    //     });
+    // </script>
 
 </body>
 </html>
