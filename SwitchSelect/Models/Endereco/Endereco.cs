@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SwitchSelect.Models.Endereco
 {
-    [Table("Logradouros")]
-    public class LogradouroModel
+    [Table("Enderecos")]
+    public class Endereco
     {
         [Key]
         public int Id { get; set; }
@@ -12,19 +12,25 @@ namespace SwitchSelect.Models.Endereco
         [StringLength(100, ErrorMessage = "Limite 100 caracteres")]
         public string Logradouro { get; set; }
         [Required]
-        [StringLength(10,ErrorMessage ="Limite 10 caracteres")]
+        [StringLength(10, ErrorMessage = "Limite 10 caracteres")]
         public string Numero { get; set; }
         [Required]
-        [StringLength(8,ErrorMessage ="Limite 8 caracteres")]
+        [StringLength(8, ErrorMessage = "Limite 8 caracteres")]
         public string CEP { get; set; }
-        [StringLength(200,ErrorMessage ="Limite 200 caracteres")]
+        [StringLength(200, ErrorMessage = "Limite 200 caracteres")]
         public string Complemento { get; set; }
-        public TipoEndereco Tipo { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Bairro { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Cidade { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Estado { get; set; }
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
-        public int BairroId { get; set; }
-        public Bairro Bairro { get; set; }
+
     }
 
-  
 }

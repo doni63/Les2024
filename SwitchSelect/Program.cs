@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SwitchSelect.Data;
-using SwitchSelect.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +14,7 @@ builder.Services.AddDbContext<SwitchSelectContext>(options => options.UseMySql
 (connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ClienteService>();
+
 
 var app = builder.Build();
 

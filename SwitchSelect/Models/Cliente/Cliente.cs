@@ -10,7 +10,7 @@ namespace SwitchSelect.Models;
 public class Cliente
 {
     [Key]
-    public int id { get; set; }
+    public int Id { get; set; }
     [Required(ErrorMessage = "Informe o nome")]
     [StringLength(100, ErrorMessage = "Número máximo de caracter 100")]
     public string Nome { get; set; }
@@ -21,7 +21,7 @@ public class Cliente
     [StringLength(9, ErrorMessage = "Número máximo de caracter 9")]
     public string RG { get; set; }
 
-    public List<LogradouroModel> Enderecos { get; set; } = new List<LogradouroModel>();
+    public List<Endereco.Endereco> Enderecos { get; set; } = new List<Endereco.Endereco>();
 
 
 }

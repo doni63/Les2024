@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SwitchSelect.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class testeMilEndereco : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,7 +35,7 @@ namespace SwitchSelect.Migrations
                 name: "Clientes",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -46,37 +46,7 @@ namespace SwitchSelect.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Estados",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Estados", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "TipoEndereco",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Descricao = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TipoEndereco", x => x.Id);
+                    table.PrimaryKey("PK_Clientes", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -108,50 +78,6 @@ namespace SwitchSelect.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Cidades",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    EstadoId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cidades", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Cidades_Estados_EstadoId",
-                        column: x => x.EstadoId,
-                        principalTable: "Estados",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Bairros",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Descricao = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CidadeId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Bairros", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Bairros_Cidades_CidadeId",
-                        column: x => x.CidadeId,
-                        principalTable: "Cidades",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Logradouros",
                 columns: table => new
                 {
@@ -165,43 +91,19 @@ namespace SwitchSelect.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Complemento = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    TipoId = table.Column<int>(type: "int", nullable: false),
-                    ClienteId = table.Column<int>(type: "int", nullable: false),
-                    BairroId = table.Column<int>(type: "int", nullable: false)
+                    ClienteId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Logradouros", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Logradouros_Bairros_BairroId",
-                        column: x => x.BairroId,
-                        principalTable: "Bairros",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Logradouros_Clientes_ClienteId",
                         column: x => x.ClienteId,
                         principalTable: "Clientes",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Logradouros_TipoEndereco_TipoId",
-                        column: x => x.TipoId,
-                        principalTable: "TipoEndereco",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bairros_CidadeId",
-                table: "Bairros",
-                column: "CidadeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cidades_EstadoId",
-                table: "Cidades",
-                column: "EstadoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Jogos_CategoriaID",
@@ -209,19 +111,9 @@ namespace SwitchSelect.Migrations
                 column: "CategoriaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Logradouros_BairroId",
-                table: "Logradouros",
-                column: "BairroId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Logradouros_ClienteId",
                 table: "Logradouros",
                 column: "ClienteId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Logradouros_TipoId",
-                table: "Logradouros",
-                column: "TipoId");
         }
 
         /// <inheritdoc />
@@ -237,19 +129,7 @@ namespace SwitchSelect.Migrations
                 name: "Categorias");
 
             migrationBuilder.DropTable(
-                name: "Bairros");
-
-            migrationBuilder.DropTable(
                 name: "Clientes");
-
-            migrationBuilder.DropTable(
-                name: "TipoEndereco");
-
-            migrationBuilder.DropTable(
-                name: "Cidades");
-
-            migrationBuilder.DropTable(
-                name: "Estados");
         }
     }
 }

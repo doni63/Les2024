@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SwitchSelect.Data;
 
@@ -10,9 +11,11 @@ using SwitchSelect.Data;
 namespace SwitchSelect.Migrations
 {
     [DbContext(typeof(SwitchSelectContext))]
-    partial class SwitchSelectContextModelSnapshot : ModelSnapshot
+    [Migration("20240312195821_testeMilEndereco")]
+    partial class testeMilEndereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,26 +69,16 @@ namespace SwitchSelect.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("SwitchSelect.Models.Endereco.Endereco", b =>
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.LogradouroModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Bairro")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
                     b.Property<string>("CEP")
                         .IsRequired()
                         .HasMaxLength(8)
                         .HasColumnType("varchar(8)");
-
-                    b.Property<string>("Cidade")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
 
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
@@ -94,11 +87,6 @@ namespace SwitchSelect.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Logradouro")
                         .IsRequired()
@@ -114,7 +102,7 @@ namespace SwitchSelect.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Enderecos");
+                    b.ToTable("Logradouros");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Jogo", b =>
@@ -152,7 +140,7 @@ namespace SwitchSelect.Migrations
                     b.ToTable("Jogos");
                 });
 
-            modelBuilder.Entity("SwitchSelect.Models.Endereco.Endereco", b =>
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.LogradouroModel", b =>
                 {
                     b.HasOne("SwitchSelect.Models.Cliente", "Cliente")
                         .WithMany("Enderecos")

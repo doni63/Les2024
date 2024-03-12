@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SwitchSelect.Data;
+using SwitchSelect.Models.Endereco;
 using SwitchSelect.Models;
-using SwitchSelect.Services;
+using SwitchSelect.Models.ViewModels;
+
 
 namespace SwitchSelect.Controllers
 {
     public class ClienteController : Controller
     {
-        private readonly ClienteService _clienteService;
+        private readonly SwitchSelectContext _context;
 
-        public ClienteController(ClienteService clienteService)
+        public ClienteController(SwitchSelectContext context)
         {
-            _clienteService = clienteService;
+            _context = context;
         }
 
         public IActionResult Create()
@@ -25,19 +27,42 @@ namespace SwitchSelect.Controllers
         }
 
         [HttpPost]
-       public IActionResult Create(Cliente cliente)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([FromForm] ClienteViewModel model)
         {
-            if(!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(cliente);
+                var cliente = new Cliente
+                {
+                    Nome = model.Nome,
+                    Cpf = model.Cpf,
+                    RG = model.RG,
+                    
+                };
+
+                // Criar e adicionar o endereço
+                var endereco = new Endereco
+                {
+                    Logradouro = model.Logradouro,
+                    Numero = model.Numero,
+                    CEP = model.CEP,
+                    Complemento = model.Complemento,
+                    Bairro = model.Bairro,
+                    Cidade = model.Cidade,
+                    Estado = model.Estado,
+                    Cliente = cliente // Associa o endereço ao cliente
+                };
+
+                cliente.Enderecos.Add(endereco);
+
+                _context.Add(cliente);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index","home");
             }
-            else
-            {
-                _clienteService.Insert(cliente);
-                return RedirectToAction(nameof(Index), "Home");
-            }
-           
+            return View(model);
         }
+
+
 
         public IActionResult Index()
         {
