@@ -1,17 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SwitchSelect.Models.Endereco
 {
-    public class Endereco
+    [Table("Logradouros")]
+    public class LogradouroModel
     {
         [Key]
         public int Id { get; set; }
         [Required]
+        [StringLength(100, ErrorMessage = "Limite 100 caracteres")]
         public string Logradouro { get; set; }
         [Required]
+        [StringLength(10,ErrorMessage ="Limite 10 caracteres")]
         public string Numero { get; set; }
         [Required]
+        [StringLength(8,ErrorMessage ="Limite 8 caracteres")]
         public string CEP { get; set; }
+        [StringLength(200,ErrorMessage ="Limite 200 caracteres")]
         public string Complemento { get; set; }
         public TipoEndereco Tipo { get; set; }
         public int ClienteId { get; set; }

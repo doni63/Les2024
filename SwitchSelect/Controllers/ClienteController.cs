@@ -25,10 +25,18 @@ namespace SwitchSelect.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Cliente cliente)
+       public IActionResult Create(Cliente cliente)
         {
-            _clienteService.Insert(cliente);
-            return RedirectToAction(nameof(Index),"Home");
+            if(!ModelState.IsValid)
+            {
+                return View(cliente);
+            }
+            else
+            {
+                _clienteService.Insert(cliente);
+                return RedirectToAction(nameof(Index), "Home");
+            }
+           
         }
 
         public IActionResult Index()
