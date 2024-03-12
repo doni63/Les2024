@@ -19,5 +19,7 @@ public class Cliente
     [StringLength(9, ErrorMessage = "Número máximo de caracter 9")]
     public string RG { get; set; }
 
+    public List<Endereco> Enderecos { get; set; } = new List<Endereco>();
+
 
 }

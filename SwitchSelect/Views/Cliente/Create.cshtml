@@ -1,13 +1,13 @@
 ﻿@model SwitchSelect.Models.Cliente
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Novo Cliente";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>Cliente</h4>
-<hr />
+
+<br />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -27,7 +27,9 @@
                 <input asp-for="RG" class="form-control" />
                 <span asp-validation-for="RG" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
+                
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
