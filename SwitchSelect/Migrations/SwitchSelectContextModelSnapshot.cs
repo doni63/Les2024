@@ -72,14 +72,35 @@ namespace SwitchSelect.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Nome")
+                    b.Property<int>("CidadeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CidadeId");
+
                     b.ToTable("Bairro");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.Cidade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cidades");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Endereco.Endereco", b =>
@@ -174,6 +195,11 @@ namespace SwitchSelect.Migrations
                         .HasMaxLength(8)
                         .HasColumnType("varchar(8)");
 
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Complemento")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -207,6 +233,17 @@ namespace SwitchSelect.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ClienteViewModel");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.Bairro", b =>
+                {
+                    b.HasOne("SwitchSelect.Models.Endereco.Cidade", "Cidade")
+                        .WithMany("Bairros")
+                        .HasForeignKey("CidadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cidade");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Endereco.Endereco", b =>
@@ -252,6 +289,11 @@ namespace SwitchSelect.Migrations
             modelBuilder.Entity("SwitchSelect.Models.Endereco.Bairro", b =>
                 {
                     b.Navigation("Enderecos");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.Cidade", b =>
+                {
+                    b.Navigation("Bairros");
                 });
 #pragma warning restore 612, 618
         }

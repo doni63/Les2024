@@ -3,18 +3,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SwitchSelect.Models.Endereco
 {
-    [Table("Bairro")]
-    public class Bairro
+    [Table("Cidades")]
+    public class Cidade
     {
         [Key]
         public int Id { get; set; }
         [Required]
         [StringLength(100)]
-        [Display(Name ="Bairro")]
+        [Display(Name ="Cidade")]
         public string Descricao { get; set; }
-        public int CidadeId { get; set; }
-        public virtual Cidade Cidade { get; set; }
-        public List<Endereco> Enderecos { get; set; } = new List<Endereco>();
+        public List<Bairro> Bairros { get; set; }
 
     }
 }

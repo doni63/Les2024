@@ -39,10 +39,15 @@ namespace SwitchSelect.Controllers
                     RG = model.RG,
                     
                 };
+                //criar e adicionar Cidade
+                var cidade = new Cidade()
+                {
+                    Descricao = model.Cidade
+                };
                 //Criar e adicionar Bairro
                 var bairro = new Bairro(){
-                    Nome = model.Bairro
-
+                    Descricao = model.Bairro,
+                    Cidade = cidade
                 };
 
                 // Criar e adicionar o endereço
@@ -52,9 +57,6 @@ namespace SwitchSelect.Controllers
                     Numero = model.Numero,
                     CEP = model.CEP,
                     Complemento = model.Complemento,
-                    //Bairro = model.Bairro,
-                    //Cidade = model.Cidade,
-                    //Estado = model.Estado,
                     Cliente = cliente,
                     Bairro = bairro
                 };
