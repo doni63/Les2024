@@ -17,17 +17,21 @@ namespace SwitchSelect.Models.Endereco
         [Required]
         [StringLength(8, ErrorMessage = "Limite 8 caracteres")]
         public string CEP { get; set; }
+        public virtual Bairro Bairro { get; set; }
+        public int BairroID {  get; set; }
+
         [StringLength(200, ErrorMessage = "Limite 200 caracteres")]
         public string Complemento { get; set; }
-        [Required]
-        [StringLength(100)]
-        public string Bairro { get; set; }
-        [Required]
-        [StringLength(100)]
-        public string Cidade { get; set; }
-        [Required]
-        [StringLength(100)]
-        public string Estado { get; set; }
+        //[Required]
+        //[StringLength(100)]
+        //public string Bairro { get; set; }
+        //[Required]
+        //[StringLength(100)]
+        //public string Cidade { get; set; }
+        //[Required]
+        //[StringLength(100)]
+        //public string Estado { get; set; }
+
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
 

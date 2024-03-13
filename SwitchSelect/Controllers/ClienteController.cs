@@ -39,18 +39,24 @@ namespace SwitchSelect.Controllers
                     RG = model.RG,
                     
                 };
+                //Criar e adicionar Bairro
+                var bairro = new Bairro(){
+                    Nome = model.Bairro
+
+                };
 
                 // Criar e adicionar o endereço
-                var endereco = new Endereco
+                var endereco = new Endereco()
                 {
                     Logradouro = model.Logradouro,
                     Numero = model.Numero,
                     CEP = model.CEP,
                     Complemento = model.Complemento,
-                    Bairro = model.Bairro,
-                    Cidade = model.Cidade,
-                    Estado = model.Estado,
-                    Cliente = cliente // Associa o endereço ao cliente
+                    //Bairro = model.Bairro,
+                    //Cidade = model.Cidade,
+                    //Estado = model.Estado,
+                    Cliente = cliente,
+                    Bairro = bairro
                 };
 
                 cliente.Enderecos.Add(endereco);

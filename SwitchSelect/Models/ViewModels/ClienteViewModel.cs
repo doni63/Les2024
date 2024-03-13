@@ -42,13 +42,13 @@ namespace SwitchSelect.Models.ViewModels
         [StringLength(100)]
         public string Bairro { get; set; }
 
-        [Required(ErrorMessage = "Informe a cidade")]
-        [StringLength(100)]
-        public string Cidade { get; set; }
+        //[Required(ErrorMessage = "Informe a cidade")]
+        //[StringLength(100)]
+        //public string Cidade { get; set; }
 
-        [Required(ErrorMessage = "Informe o estado")]
-        [StringLength(100)]
-        public string Estado { get; set; }
+        //[Required(ErrorMessage = "Informe o estado")]
+        //[StringLength(100)]
+        //public string Estado { get; set; }
 
         
         // public List<EnderecoViewModel> Enderecos { get; set; } = new List<EnderecoViewModel>();
