@@ -49,6 +49,7 @@ namespace SwitchSelect.Service
                 Logradouro = model.Logradouro,
                 Numero = model.Numero,
                 CEP = model.CEP,
+                TipoResidencia = model.TipoResidencia,
                 Complemento = model.Complemento,
                 Cliente = cliente,
                 Bairro = bairro

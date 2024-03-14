@@ -34,7 +34,11 @@ namespace SwitchSelect.Models.ViewModels
         // Informações de Endereço
         [Required]
         public TipoEndereco TipoEndereco { get; set; }
-        
+
+        [Required]
+        public TipoResidencia TipoResidencia { get; set; }
+
+
         [Required(ErrorMessage = "Informe o logradouro")]
         [StringLength(100, ErrorMessage = "Limite de 100 caracteres para o logradouro")]
         public string Logradouro { get; set; }
