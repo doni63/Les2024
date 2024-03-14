@@ -43,6 +43,11 @@
             </div>
             <br />
             <h4>Cadastre seu endereço</h4>
+            <select asp-for="TipoEndereco" class="form-control">
+                <option value="">Selecione o Tipo de Endereço</option>
+                <option value="0">Entrega</option>
+                <option value="1">Cobrança</option>
+            </select>
             <div class="form-group">
                 <label asp-for="Logradouro" class="control-label"></label>
                 <input asp-for="Logradouro" class="form-control" />

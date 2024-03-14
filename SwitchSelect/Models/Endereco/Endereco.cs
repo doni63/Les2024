@@ -26,6 +26,8 @@ namespace SwitchSelect.Models.Endereco
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
 
+        public TipoEndereco TipoEndereco { get; set;}
+
     }
 
 }

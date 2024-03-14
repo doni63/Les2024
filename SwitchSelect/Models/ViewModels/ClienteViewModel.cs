@@ -1,4 +1,5 @@
 ﻿
+using SwitchSelect.Models.Endereco;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -31,6 +32,8 @@ namespace SwitchSelect.Models.ViewModels
         public string RG { get; set; }
 
         // Informações de Endereço
+        [Required]
+        public TipoEndereco TipoEndereco { get; set; }
         
         [Required(ErrorMessage = "Informe o logradouro")]
         [StringLength(100, ErrorMessage = "Limite de 100 caracteres para o logradouro")]
