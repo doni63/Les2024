@@ -12,6 +12,9 @@ namespace SwitchSelect.Models.Endereco
         [StringLength(100)]
         [Display(Name ="Cidade")]
         public string Descricao { get; set; }
+
+        public virtual Estado Estado { get; set; }
+        public int EstadoID { get; set; }
         public List<Bairro> Bairros { get; set; }
 
     }

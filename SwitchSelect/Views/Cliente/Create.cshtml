@@ -1,12 +1,12 @@
 ﻿@model SwitchSelect.Models.ViewModels.ClienteViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadatro";
 }
 
-<h1>Create</h1>
+<h1>Faça seu cadastro</h1>
 
-<h4>ClienteViewModel</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,7 +19,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Genero" class="control-label"></label>
-                <input asp-for="Genero" class="form-control" />
+                <select asp-for="Genero" class="form-control"> 
+                    <option value="">Selecione um genêro</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                </select>
                 <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,6 +41,8 @@
                 <input asp-for="RG" class="form-control" />
                 <span asp-validation-for="RG" class="text-danger"></span>
             </div>
+            <br />
+            <h4>Cadastre seu endereço</h4>
             <div class="form-group">
                 <label asp-for="Logradouro" class="control-label"></label>
                 <input asp-for="Logradouro" class="form-control" />
@@ -55,7 +61,7 @@
             <div class="form-group">
                 <label asp-for="Complemento" class="control-label"></label>
                 <input asp-for="Complemento" class="form-control" />
-                <span asp-validation-for="Complemento" class="text-danger"></span>
+                
             </div>
             <div class="form-group">
                 <label asp-for="Bairro" class="control-label"></label>
@@ -66,6 +72,11 @@
                 <label asp-for="Cidade" class="control-label"></label>
                 <input asp-for="Cidade" class="form-control" />
                 <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

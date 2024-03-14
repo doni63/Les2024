@@ -11,8 +11,8 @@ using SwitchSelect.Data;
 namespace SwitchSelect.Migrations
 {
     [DbContext(typeof(SwitchSelectContext))]
-    [Migration("20240314014013_AtualizandoCliente")]
-    partial class AtualizandoCliente
+    [Migration("20240314024013_criandoEstado")]
+    partial class criandoEstado
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -111,7 +111,12 @@ namespace SwitchSelect.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int>("EstadoID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("EstadoID");
 
                     b.ToTable("Cidades");
                 });
@@ -155,6 +160,21 @@ namespace SwitchSelect.Migrations
                     b.HasIndex("ClienteId");
 
                     b.ToTable("Enderecos");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.Estado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Estados");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Jogo", b =>
@@ -228,6 +248,11 @@ namespace SwitchSelect.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Genero")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -267,6 +292,17 @@ namespace SwitchSelect.Migrations
                         .IsRequired();
 
                     b.Navigation("Cidade");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.Cidade", b =>
+                {
+                    b.HasOne("SwitchSelect.Models.Endereco.Estado", "Estado")
+                        .WithMany("Cidades")
+                        .HasForeignKey("EstadoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Estado");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Endereco.Endereco", b =>
@@ -317,6 +353,11 @@ namespace SwitchSelect.Migrations
             modelBuilder.Entity("SwitchSelect.Models.Endereco.Cidade", b =>
                 {
                     b.Navigation("Bairros");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Endereco.Estado", b =>
+                {
+                    b.Navigation("Cidades");
                 });
 #pragma warning restore 612, 618
         }

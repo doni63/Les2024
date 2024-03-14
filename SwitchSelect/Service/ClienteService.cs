@@ -26,10 +26,15 @@ namespace SwitchSelect.Service
 
 
             };
+            var estado = new Estado
+            {
+                Descricao = model.Estado
+            };
 
             var cidade = new Cidade
             {
-                Descricao = model.Cidade
+                Descricao = model.Cidade,
+                Estado = estado
             };
 
             var bairro = new Bairro

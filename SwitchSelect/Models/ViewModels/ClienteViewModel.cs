@@ -45,7 +45,7 @@ namespace SwitchSelect.Models.ViewModels
         public string CEP { get; set; }
 
         [StringLength(200, ErrorMessage = "Limite de 200 caracteres para o complemento")]
-        public string Complemento { get; set; }
+        public string? Complemento { get; set; }
 
         [Required(ErrorMessage = "Informe o bairro")]
         [StringLength(100)]
@@ -55,11 +55,15 @@ namespace SwitchSelect.Models.ViewModels
        [StringLength(100)]
         public string Cidade { get; set; }
 
+        [Required(ErrorMessage = "Informe o Estado")]
+        [StringLength(100)]
+        public string Estado { get; set; }
+
         //[Required(ErrorMessage = "Informe o estado")]
         //[StringLength(100)]
         //public string Estado { get; set; }
 
-        
+
         // public List<EnderecoViewModel> Enderecos { get; set; } = new List<EnderecoViewModel>();
 
         // Classe interna para Endereco, se necessário

@@ -21,7 +21,7 @@ namespace SwitchSelect.Models.Endereco
         public int BairroID {  get; set; }
 
         [StringLength(200, ErrorMessage = "Limite 200 caracteres")]
-        public string Complemento { get; set; }
+        public string? Complemento { get; set; }
        
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
