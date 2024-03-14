@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SwitchSelect.Migrations
 {
     /// <inheritdoc />
-    public partial class implementandoCidade : Migration
+    public partial class recupernadoDados : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

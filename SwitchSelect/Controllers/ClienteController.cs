@@ -3,6 +3,7 @@ using SwitchSelect.Data;
 using SwitchSelect.Models.Endereco;
 using SwitchSelect.Models;
 using SwitchSelect.Models.ViewModels;
+using SwitchSelect.Service;
 
 
 namespace SwitchSelect.Controllers
@@ -10,10 +11,12 @@ namespace SwitchSelect.Controllers
     public class ClienteController : Controller
     {
         private readonly SwitchSelectContext _context;
+        private readonly ClienteService _clienteService;
 
-        public ClienteController(SwitchSelectContext context)
+        public ClienteController(SwitchSelectContext context, ClienteService service)
         {
             _context = context;
+            _clienteService = service;
         }
 
         public IActionResult Create()
@@ -31,40 +34,8 @@ namespace SwitchSelect.Controllers
         public async Task<IActionResult> Create([FromForm] ClienteViewModel model)
         {
             if (ModelState.IsValid)
-            {
-                var cliente = new Cliente
-                {
-                    Nome = model.Nome,
-                    Cpf = model.Cpf,
-                    RG = model.RG,
-                    
-                };
-                //criar e adicionar Cidade
-                var cidade = new Cidade()
-                {
-                    Descricao = model.Cidade
-                };
-                //Criar e adicionar Bairro
-                var bairro = new Bairro(){
-                    Descricao = model.Bairro,
-                    Cidade = cidade
-                };
-
-                // Criar e adicionar o endereço
-                var endereco = new Endereco()
-                {
-                    Logradouro = model.Logradouro,
-                    Numero = model.Numero,
-                    CEP = model.CEP,
-                    Complemento = model.Complemento,
-                    Cliente = cliente,
-                    Bairro = bairro
-                };
-
-                cliente.Enderecos.Add(endereco);
-
-                _context.Add(cliente);
-                await _context.SaveChangesAsync();
+            {                      
+                await _clienteService.CriarClienteAsync(model);
                 return RedirectToAction("Index","home");
             }
             return View(model);

@@ -14,6 +14,15 @@ public class Cliente
     [Required(ErrorMessage = "Informe o nome")]
     [StringLength(100, ErrorMessage = "Número máximo de caracter 100")]
     public string Nome { get; set; }
+
+    [Required]
+    [StringLength(10)]
+    public string Genero { get; set; }
+
+    [Required]
+    [StringLength(100)]
+    public string Email { get; set; }
+
     [Required(ErrorMessage = "Informe o Cpf")]
     [StringLength(11, ErrorMessage = "Número máximo de caracter 11")]
     public string Cpf { get; set; }
