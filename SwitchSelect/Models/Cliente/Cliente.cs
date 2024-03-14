@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using SwitchSelect.Models.Endereco;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,7 +29,7 @@ public class Cliente
     [StringLength(9, ErrorMessage = "Número máximo de caracter 9")]
     public string RG { get; set; }
 
-    public List<Endereco.Endereco> Enderecos { get; set; } = new List<Endereco.Endereco>();
-
+    public List<Endereco> Enderecos { get; set; } = new List<Endereco>();
+    public List<Telefone> Telefones { get; set; } = new List<Telefone>();
 
 }

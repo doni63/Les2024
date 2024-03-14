@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SwitchSelect.Data;
-using SwitchSelect.Models.Endereco;
-using SwitchSelect.Models;
+
 using SwitchSelect.Models.ViewModels;
 using SwitchSelect.Service;
 

@@ -1,4 +1,4 @@
-﻿namespace SwitchSelect.Models.Endereco
+﻿namespace SwitchSelect.Models
 {
     public enum TipoEndereco
     {

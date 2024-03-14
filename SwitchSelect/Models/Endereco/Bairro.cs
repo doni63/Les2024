@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SwitchSelect.Models.Endereco
+namespace SwitchSelect.Models
 {
     [Table("Bairro")]
     public class Bairro

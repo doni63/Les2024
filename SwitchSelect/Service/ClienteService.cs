@@ -1,5 +1,4 @@
 ﻿using SwitchSelect.Data;
-using SwitchSelect.Models.Endereco;
 using SwitchSelect.Models.ViewModels;
 using SwitchSelect.Models;
 
@@ -26,6 +25,14 @@ namespace SwitchSelect.Service
 
 
             };
+            var telefone = new Telefone
+            {
+                TipoTelefone = model.TipoTelefone,
+                DDD = model.DDD,
+                NumeroTelefone = model.NumeroTelefone,
+                Cliente = cliente
+            };
+
             var estado = new Estado
             {
                 Descricao = model.Estado
@@ -57,7 +64,7 @@ namespace SwitchSelect.Service
             };
 
             cliente.Enderecos.Add(endereco);
-
+            cliente.Telefones.Add(telefone);
             _context.Add(cliente);
             await _context.SaveChangesAsync();
         }
