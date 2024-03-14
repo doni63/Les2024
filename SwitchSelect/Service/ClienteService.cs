@@ -46,6 +46,7 @@ namespace SwitchSelect.Service
             var endereco = new Endereco
             {
                 TipoEndereco = model.TipoEndereco,
+                TipoLogradouro = model.TipoLogradouro,
                 Logradouro = model.Logradouro,
                 Numero = model.Numero,
                 CEP = model.CEP,

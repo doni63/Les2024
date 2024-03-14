@@ -8,6 +8,10 @@ namespace SwitchSelect.Models.Endereco
     {
         [Key]
         public int Id { get; set; }
+
+        [Required]
+        public TipoLogradouro TipoLogradouro { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "Limite 100 caracteres")]
         public string Logradouro { get; set; }

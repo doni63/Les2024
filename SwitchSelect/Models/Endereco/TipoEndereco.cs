@@ -2,7 +2,7 @@
 {
     public enum TipoEndereco
     {
-        Entrega,
-        Cobranca
+       Cobrança,
+       Entrega
     }
 }

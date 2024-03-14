@@ -18,12 +18,19 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Genero" class="control-label"></label>
-                <select asp-for="Genero" class="form-control"> 
-                    <option value="">Selecione um genêro</option>
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
-                </select>
+                <label class="control-label">Gênero</label>
+                <div>
+                    <label>
+                        <input type="radio" name="Genero" value="M" asp-for="Genero" />
+                        Masculino
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="Genero" value="F" asp-for="Genero" />
+                        Feminino
+                    </label>
+                </div>
                 <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,11 +50,31 @@
             </div>
             <br />
             <h4>Cadastre seu endereço</h4>
-            <select asp-for="TipoEndereco" class="form-control">
-                <option value="">Selecione o Tipo de Endereço</option>
-                <option value="0">Entrega</option>
-                <option value="1">Cobrança</option>
-            </select>
+            <div class="form-group">
+                <label class="control-label">Tipo de endereco</label>
+                <div>
+                    <label>
+                        <input type="radio" name="TipoEndereco" value="0" asp-for="TipoEndereco" checked/>
+                        Cobrança
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="TipoEndereco" value="1" asp-for="TipoEndereco" />
+                        Entrega
+                    </label>
+                </div>
+                <span asp-validation-for="TipoEndereco" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <label asp-for="TipoLogradouro" class="control-label"></label>
+                @Html.DropDownListFor(model => model.TipoLogradouro,
+                         new SelectList(Enum.GetValues(typeof(SwitchSelect.Models.Endereco.TipoLogradouro))),
+                         "Selecione o Tipo de logradouro",
+                         new { @class = "form-control" })
+            </div>
             <div class="form-group">
                 <label asp-for="Logradouro" class="control-label"></label>
                 <input asp-for="Logradouro" class="form-control" />
@@ -63,17 +90,18 @@
                 <input asp-for="CEP" class="form-control" />
                 <span asp-validation-for="CEP" class="text-danger"></span>
             </div>
-
-            @Html.DropDownListFor(model => model.TipoResidencia,
-                     new SelectList(Enum.GetValues(typeof(SwitchSelect.Models.Endereco.TipoResidencia))),
-                     "Selecione o Tipo de Residência",
-                     new { @class = "form-control" })
-
+            <div class="form-group">
+                <label asp-for="TipoResidencia" class="control-label"></label>
+                @Html.DropDownListFor(model => model.TipoResidencia,
+                         new SelectList(Enum.GetValues(typeof(SwitchSelect.Models.Endereco.TipoResidencia))),
+                         "Selecione o Tipo de Residência",
+                         new { @class = "form-control" })
+            </div>
 
             <div class="form-group">
                 <label asp-for="Complemento" class="control-label"></label>
                 <input asp-for="Complemento" class="form-control" />
-                
+
             </div>
             <div class="form-group">
                 <label asp-for="Bairro" class="control-label"></label>
