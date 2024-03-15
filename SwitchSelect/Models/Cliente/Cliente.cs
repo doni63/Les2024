@@ -23,7 +23,7 @@ public class Cliente
     public string Email { get; set; }
 
     [Required(ErrorMessage = "Informe o Cpf")]
-    [StringLength(11, ErrorMessage = "Número máximo de caracter 11")]
+    [StringLength(11, MinimumLength = 11, ErrorMessage = "Cpf inválido")]
     public string Cpf { get; set; }
     [Required(ErrorMessage = "Informe o RG")]
     [StringLength(9, ErrorMessage = "Número máximo de caracter 9")]
@@ -31,5 +31,6 @@ public class Cliente
 
     public List<Endereco> Enderecos { get; set; } = new List<Endereco>();
     public List<Telefone> Telefones { get; set; } = new List<Telefone>();
+    public List<Cartao> cartaos { get; set; } = new List<Cartao>();
 
 }

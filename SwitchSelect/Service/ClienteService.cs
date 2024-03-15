@@ -25,11 +25,23 @@ namespace SwitchSelect.Service
 
 
             };
+
             var telefone = new Telefone
             {
                 TipoTelefone = model.TipoTelefone,
                 DDD = model.DDD,
                 NumeroTelefone = model.NumeroTelefone,
+                Cliente = cliente
+            };
+
+            var cartao = new Cartao
+            {
+                NumeroCartao = model.NumeroCartao,
+                TitularDoCartao = model.TitularDoCartao,
+                CpfTitularCartao = model.CpfTitularCartao,
+                DataValidade = model.DataValidade,
+                CVV = model.CVV,
+                TipoCartao = model.TipoCartao,
                 Cliente = cliente
             };
 
@@ -65,6 +77,7 @@ namespace SwitchSelect.Service
 
             cliente.Enderecos.Add(endereco);
             cliente.Telefones.Add(telefone);
+            cliente.cartaos.Add(cartao);
             _context.Add(cliente);
             await _context.SaveChangesAsync();
         }

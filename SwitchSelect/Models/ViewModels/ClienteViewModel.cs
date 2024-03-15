@@ -24,7 +24,7 @@ namespace SwitchSelect.Models.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Informe o Cpf")]
-        [StringLength(11, ErrorMessage = "Número máximo de caracter 11")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "Cpf inválido")]
         public string Cpf { get; set; }
 
         [Required(ErrorMessage = "Informe o RG")]
@@ -81,17 +81,35 @@ namespace SwitchSelect.Models.ViewModels
         [StringLength(100)]
         public string Estado { get; set; }
 
-        //[Required(ErrorMessage = "Informe o estado")]
-        //[StringLength(100)]
-        //public string Estado { get; set; }
+        //Dados do cartão
+        [Required(ErrorMessage = "Informe número do cartão")]
+        [Display(Name = "Numero do cartão")]
+        [StringLength(16)]
+        public string NumeroCartao { get; set; }
 
+        [Required(ErrorMessage = "Informe nome do titular do cartão")]
+        [Display(Name = "Nome do titular")]
+        [StringLength(100)]
+        public string TitularDoCartao { get; set; }
 
-        // public List<EnderecoViewModel> Enderecos { get; set; } = new List<EnderecoViewModel>();
+        [Required(ErrorMessage = "Informe cpf do titular")]
+        [Display(Name = "Cpf do titular")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "Cpf inválido")]
+        public string CpfTitularCartao { get; set; }
 
-        // Classe interna para Endereco, se necessário
-        // public class EnderecoViewModel
-        // {
-        //     // Propriedades do Endereço
-        // }
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Data de Validade")]
+        public DateTime DataValidade { get; set; }
+
+        [Required(ErrorMessage = "Informe o CVV")]
+        [Display(Name = "CVV")]
+        [StringLength(3, MinimumLength = 3, ErrorMessage = "CVV inválido")]
+        public string CVV { get; set; }
+
+        [Required]
+        [Display(Name = "Tipo de cartão")]
+        public TipoCartao TipoCartao { get; set; }
+
     }
 }
