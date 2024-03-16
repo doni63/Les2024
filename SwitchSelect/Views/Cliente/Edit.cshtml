@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="ClienteEdit">
+        <form asp-controller="Cliente" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -19,8 +19,19 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Genero" class="control-label"></label>
-                <input asp-for="Genero" class="form-control" />
+                <label class="control-label">Gênero</label>
+                <div>
+                    <label>
+                        <input type="radio" name="Genero" value="M" asp-for="Genero" />
+                        Masculino
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="Genero" value="F" asp-for="Genero" />
+                        Feminino
+                    </label>
+                </div>
                 <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,8 +51,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="TipoTelefone" class="control-label"></label>
-                <select asp-for="TipoTelefone" class="form-control"></select>
-                <span asp-validation-for="TipoTelefone" class="text-danger"></span>
+                @Html.DropDownListFor(model => model.TipoTelefone,
+                         new SelectList(Enum.GetValues(typeof(SwitchSelect.Models.TipoTelefone))),
+                         "Selecione o Tipo de Telefone",
+                         new { @class = "form-control" })
             </div>
             <div class="form-group">
                 <label asp-for="DDD" class="control-label"></label>
@@ -54,19 +67,34 @@
                 <span asp-validation-for="NumeroTelefone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TipoEndereco" class="control-label"></label>
-                <select asp-for="TipoEndereco" class="form-control"></select>
+                <label class="control-label">Tipo de endereco</label>
+                <div>
+                    <label>
+                        <input type="radio" name="TipoEndereco" value="0" asp-for="TipoEndereco" checked />
+                        Cobrança
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="TipoEndereco" value="1" asp-for="TipoEndereco" />
+                        Entrega
+                    </label>
+                </div>
                 <span asp-validation-for="TipoEndereco" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="TipoResidencia" class="control-label"></label>
-                <select asp-for="TipoResidencia" class="form-control"></select>
-                <span asp-validation-for="TipoResidencia" class="text-danger"></span>
+                @Html.DropDownListFor(model => model.TipoResidencia,
+                         new SelectList(Enum.GetValues(typeof(SwitchSelect.Models.TipoResidencia))),
+                         "Selecione o Tipo de Residência",
+                         new { @class = "form-control" })
             </div>
             <div class="form-group">
                 <label asp-for="TipoLogradouro" class="control-label"></label>
-                <select asp-for="TipoLogradouro" class="form-control"></select>
-                <span asp-validation-for="TipoLogradouro" class="text-danger"></span>
+                @Html.DropDownListFor(model => model.TipoLogradouro,
+                         new SelectList(Enum.GetValues(typeof(SwitchSelect.Models.TipoLogradouro))),
+                         "Selecione o Tipo de logradouro",
+                         new { @class = "form-control" })
             </div>
             <div class="form-group">
                 <label asp-for="Logradouro" class="control-label"></label>
@@ -104,6 +132,22 @@
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label">Cartão</label>
+                <div>
+                    <label>
+                        <input type="radio" name="TipoCartao" value="0" asp-for="TipoCartao" />
+                        Crédito
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="TipoCartao" value="F" asp-for="TipoCartao" />
+                        Débito
+                    </label>
+                </div>
+                <span asp-validation-for="TipoCartao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="NumeroCartao" class="control-label"></label>
                 <input asp-for="NumeroCartao" class="form-control" />
                 <span asp-validation-for="NumeroCartao" class="text-danger"></span>
@@ -128,13 +172,9 @@
                 <input asp-for="CVV" class="form-control" />
                 <span asp-validation-for="CVV" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
-                <label asp-for="TipoCartao" class="control-label"></label>
-                <select asp-for="TipoCartao" class="form-control"></select>
-                <span asp-validation-for="TipoCartao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>

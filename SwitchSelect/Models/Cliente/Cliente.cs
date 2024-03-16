@@ -28,9 +28,8 @@ public class Cliente
     [Required(ErrorMessage = "Informe o RG")]
     [StringLength(9, ErrorMessage = "Número máximo de caracter 9")]
     public string RG { get; set; }
-
+    public List <Telefone> Telefones { get; set; }
     public List<Endereco> Enderecos { get; set; } = new List<Endereco>();
-    public List<Telefone> Telefones { get; set; } = new List<Telefone>();
-    public List<Cartao> cartaos { get; set; } = new List<Cartao>();
+    public List<Cartao> Cartoes { get; set; } = new List<Cartao>();
 
 }
