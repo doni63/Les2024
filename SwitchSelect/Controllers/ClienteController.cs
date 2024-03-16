@@ -85,6 +85,38 @@ namespace SwitchSelect.Controllers
             }
             return View(clienteViewModel);
         }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cliente = await _context.Clientes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new ClienteDeleteViewModel
+            {
+                Id = cliente.Id,
+                Nome = cliente.Nome
+            };
+
+            return View(viewModel);
+        }
+
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _clienteService.DeleteClienteAsync(id);
+            return RedirectToAction("ListaCliente", "Cliente");
+        }
 
     }
 }

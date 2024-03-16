@@ -18,6 +18,7 @@ namespace SwitchSelect.Service
             _context = context;
         }
 
+        //criar cliente
         public async Task CriarClienteAsync(ClienteViewModel model)
         {
             var cliente = new Cliente
@@ -82,10 +83,12 @@ namespace SwitchSelect.Service
 
             cliente.Enderecos.Add(endereco);
             cliente.Cartoes.Add(cartao);
+            cliente.Telefones.Add(telefone);
             _context.Add(cliente);
             await _context.SaveChangesAsync();
         }
 
+        //obter cliente por id para editar ou deletar
         public async Task<ClienteViewModel> ObterClientePorIdAsync(int id)
         {
             var cliente = await _context.Clientes
@@ -137,6 +140,7 @@ namespace SwitchSelect.Service
             return clienteViewModel;
         }
 
+        //método para editar cliente obetendo cliente por id e recebendo dados do banco, convertendo objeto cliente para objeto clienteviewmodel
         public async Task<bool> EditarClienteAsync(int id, ClienteViewModel model)
         {
             var cliente = await _context.Clientes
@@ -234,6 +238,25 @@ namespace SwitchSelect.Service
         {
             return _context.Clientes.ToList();
         }
+
+        //metodo para deletar cliente recebendo id de cliente com os dados de endereco, telefoen e cartao, mas sem os dados de bairro, cidade e estado, 
+        public async Task DeleteClienteAsync(int clienteId)
+        {
+            var cliente = await _context.Clientes
+                .Include(c => c.Enderecos)
+                .Include(c => c.Telefones)
+                .Include(c => c.Cartoes)
+                .FirstOrDefaultAsync(c => c.Id == clienteId);
+
+            if (cliente == null)
+            {
+                throw new Exception("Cliente não encontrado");
+            }
+
+            _context.Clientes.Remove(cliente);
+            await _context.SaveChangesAsync();
+        }
+
 
 
     }
