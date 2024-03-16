@@ -32,7 +32,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li>
-                            <button class="btn text-white">
+                            <button id="menu" class="btn text-white" onclick="exibirModalMenu()">
                                 <i class="bi bi-list fs-3"></i>
                             </button>
                         </li>
@@ -92,31 +92,35 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
+    <!--Modal Menu-->
+    <div class="modal" tabindex="-1" role="dialog" id="modalMenu">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+                <div class="modal-body">
+                    <a asp-controller="Admin" asp-action="TelaAdmin">Área do administrador</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
     <!--Contador de produtos-->
     <script>
 
-    //     document.addEventListener('DOMContentLoaded', function () {
-    //         var addToCartButton = document.querySelector('button[data-bs-target="#carrinhoModal"]');
-    //         var cartCountDisplay = document.getElementById('cart-count');
-
-    //         // Atualiza a contagem do carrinho com base no valor armazenado ao carregar a página.
-    //         function updateCartCount() {
-    //             var savedCount = parseInt(localStorage.getItem('cartCount') || '0');
-    //             cartCountDisplay.textContent = savedCount;
-    //         }
-
-    //         // Chamada inicial para definir o valor correto ao carregar a página.
-    //         updateCartCount();
-
-    //         if (addToCartButton) {
-    //             addToCartButton.addEventListener('click', function () {
-    //                 var currentCount = parseInt(localStorage.getItem('cartCount') || '0') + 1;
-    //                 localStorage.setItem('cartCount', currentCount.toString());
-    //                 cartCountDisplay.textContent = currentCount;
-    //             });
-    //         }
-    //     });
-    // </script>
+        function exibirModalMenu() {
+            $('#modalMenu').modal('show');
+        }
+    
+    </script>
 
 </body>
 </html>

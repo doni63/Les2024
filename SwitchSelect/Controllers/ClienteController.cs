@@ -18,12 +18,17 @@ namespace SwitchSelect.Controllers
             _clienteService = service;
         }
 
-        public IActionResult Create()
+        public IActionResult ListaCliente()
         {
-            return View();
+            var list = _clienteService.ListarClientes();
+            return View(list);
         }
 
         public IActionResult PerfilUsuario()
+        {
+            return View();
+        }
+        public IActionResult Create()
         {
             return View();
         }
@@ -40,11 +45,8 @@ namespace SwitchSelect.Controllers
             return View(model);
         }
 
+       
 
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
     }
 }

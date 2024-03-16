@@ -39,7 +39,9 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\b
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.JSInterop.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
@@ -235,7 +237,6 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\o
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.MvcApplicationPartsAssemblyInfo.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.RazorAssemblyInfo.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.RazorAssemblyInfo.cs
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.sourcelink.json
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\staticwebassets.build.json
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\staticwebassets.development.json
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\staticwebassets\msbuild.SwitchSelect.Microsoft.AspNetCore.StaticWebAssets.props
@@ -252,5 +253,3 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\o
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.pdb
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.genruntimeconfig.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\ref\SwitchSelect.dll
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

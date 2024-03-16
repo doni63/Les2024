@@ -1,6 +1,8 @@
 ﻿using SwitchSelect.Data;
 using SwitchSelect.Models.ViewModels;
 using SwitchSelect.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace SwitchSelect.Service
 {
@@ -81,5 +83,14 @@ namespace SwitchSelect.Service
             _context.Add(cliente);
             await _context.SaveChangesAsync();
         }
+
+       
+
+        public List<Cliente> ListarClientes()
+        {
+            return _context.Clientes.ToList();
+        }
+
+       
     }
 }
