@@ -24,6 +24,10 @@ namespace SwitchSelect.Models
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Cpf inválido")]
         public string CpfTitularCartao { get; set; }
 
+        [NotMapped]
+        public int MesValidade { get; set; }
+        [NotMapped]
+        public int AnoValidade { get; set; }
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Data de Validade")]

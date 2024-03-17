@@ -147,7 +147,7 @@
                 <label class="control-label">Cartão</label>
                 <div>
                     <label>
-                        <input type="radio" name="TipoCartao" value="0" asp-for="TipoCartao" />
+                        <input type="radio" name="TipoCartao" value="0" asp-for="TipoCartao" checked/>
                         Crédito
                     </label>
                 </div>
@@ -175,9 +175,12 @@
                 <span asp-validation-for="NumeroCartao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DataValidade" class="control-label"></label>
-                <input asp-for="DataValidade" class="form-control" type="date" />
-                <span asp-validation-for="DataValidade" class="text-danger"></span>
+                <label asp-for="MesValidade" class="control-label">Mês Validade</label>
+                <input asp-for="MesValidade" class="form-control" type="number" min="1" max="12" />
+            </div>
+            <div class="form-group">
+                <label asp-for="AnoValidade" class="control-label">Ano Validade</label>
+                <input asp-for="AnoValidade" class="form-control" type="number" min="@DateTime.Now.Year" />
             </div>
             <div class="form-group">
                 <label asp-for="CVV" class="control-label"></label>

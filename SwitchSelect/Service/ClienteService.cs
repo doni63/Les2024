@@ -46,7 +46,7 @@ namespace SwitchSelect.Service
                 NumeroCartao = model.NumeroCartao,
                 TitularDoCartao = model.TitularDoCartao,
                 CpfTitularCartao = model.CpfTitularCartao,
-                DataValidade = model.DataValidade,
+                DataValidade = new DateTime(model.AnoValidade, model.MesValidade, DateTime.DaysInMonth(model.AnoValidade, model.MesValidade)),
                 CVV = model.CVV,
                 TipoCartao = model.TipoCartao,
                 Cliente = cliente

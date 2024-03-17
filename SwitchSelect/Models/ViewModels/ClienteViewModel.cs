@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace SwitchSelect.Models.ViewModels
@@ -98,6 +99,11 @@ namespace SwitchSelect.Models.ViewModels
         [Display(Name = "Cpf do titular")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Cpf inválido")]
         public string CpfTitularCartao { get; set; }
+
+        [NotMapped]
+        public int MesValidade { get; set; }
+        [NotMapped]
+        public int AnoValidade { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

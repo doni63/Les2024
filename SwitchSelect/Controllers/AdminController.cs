@@ -23,13 +23,13 @@ namespace SwitchSelect.Controllers
         }
 
 
-        //public async Task<IActionResult> AdminInformacaoCliente(int? id)
-        //{
-        //    if (id == null) { return NotFound(); }
+        public async Task<IActionResult> AdminInformacaoCliente(int? id)
+        {
+            if (id == null) { return NotFound(); }
 
-        //    var cliente = _service.AdminGetCliente(id.Value);
-        //    if (cliente == null) { return NotFound(); };
-        //    return View(cliente);
-        //}
+            var cliente = _service.AdminGetCliente(id.Value);
+            if (cliente == null) { return NotFound(); };
+            return View(cliente);
+        }
     }
 }
