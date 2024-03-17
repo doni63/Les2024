@@ -24,6 +24,7 @@ namespace SwitchSelect.Service
             var cliente = new Cliente
             {
                 Nome = model.Nome,
+                DataDeNascimento = model.DataDeNascimento,
                 Genero = model.Genero,
                 Email = model.Email,
                 Cpf = model.Cpf,
@@ -110,6 +111,7 @@ namespace SwitchSelect.Service
             {
                 //dados cliente
                 Nome = cliente.Nome,
+                DataDeNascimento = cliente.DataDeNascimento,
                 Email = cliente.Email,
                 Genero = cliente.Genero,
                 Cpf = cliente.Cpf,
@@ -156,6 +158,7 @@ namespace SwitchSelect.Service
 
             // Atualiza as propriedades do cliente
             cliente.Nome = model.Nome;
+            cliente.DataDeNascimento = model.DataDeNascimento;
             cliente.Email = model.Email;
             cliente.Genero = model.Genero;
             cliente.Cpf = model.Cpf;

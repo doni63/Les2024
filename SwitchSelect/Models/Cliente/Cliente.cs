@@ -15,6 +15,9 @@ public class Cliente
     public string Nome { get; set; }
 
     [Required]
+    public DateTime DataDeNascimento { get; set; }
+
+    [Required]
     [StringLength(10)]
     public string Genero { get; set; }
 
