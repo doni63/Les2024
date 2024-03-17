@@ -135,9 +135,6 @@ namespace SwitchSelect.Service
                 CpfTitularCartao = cliente.Cartoes.FirstOrDefault()?.CpfTitularCartao,
                 DataValidade = (DateTime)(cliente.Cartoes.FirstOrDefault()?.DataValidade),
                 CVV = cliente.Cartoes.FirstOrDefault()?.CVV,
-
-
-
             };
             return clienteViewModel;
         }
