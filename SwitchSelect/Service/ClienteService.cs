@@ -254,6 +254,14 @@ namespace SwitchSelect.Service
             return _context.Clientes.ToList();
         }
 
+        public async Task<Cliente> BuscarPorCpf(string cpf)
+        {
+            
+            return await _context.Clientes
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c=>c.Cpf == cpf);
+        }
+
         //metodo para deletar cliente recebendo id de cliente com os dados de endereco, telefoen e cartao, mas sem os dados de bairro, cidade e estado, 
         public async Task DeleteClienteAsync(int clienteId)
         {

@@ -17,6 +17,8 @@ builder.Services.AddDbContext<SwitchSelectContext>(options => options.UseMySql
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<AdminService>();
+builder.Logging.AddConsole();
+
 
 
 

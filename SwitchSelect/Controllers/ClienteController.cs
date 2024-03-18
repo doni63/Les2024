@@ -34,6 +34,34 @@ namespace SwitchSelect.Controllers
             return View();
         }
 
+        public IActionResult PesquisarClientePorCpf()
+        {
+            return View();
+        }
+
+        
+        public async Task<IActionResult> PesquisarPorCpf(string cpf)
+        {
+            if(string.IsNullOrEmpty(cpf)) return NotFound();
+
+            var cliente = await _clienteService.BuscarPorCpf(cpf);
+
+            if(cliente == null) return NotFound();
+            Console.WriteLine("teste" + cliente.Id);
+            return RedirectToAction("AreaCliente", new { id = cliente.Id });
+        }
+
+        public async Task<IActionResult> AreaCliente(int id)
+        {
+            var cliente = await _clienteService.ObterClientePorIdAsync(id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            return View(cliente);
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] ClienteViewModel model)
