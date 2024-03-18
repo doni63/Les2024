@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SwitchSelect.Service;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SwitchSelect.Models
@@ -23,11 +24,16 @@ namespace SwitchSelect.Models
         [Display(Name = "Cpf do titular")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Cpf inválido")]
         public string CpfTitularCartao { get; set; }
-
+        
+        [Range(1, 12, ErrorMessage = "O mês de validade deve estar entre 1 e 12.")]
         [NotMapped]
         public int MesValidade { get; set; }
+
+        [Required(ErrorMessage = "O ano de validade é obrigatório.")]
+        [AnoValidade]
         [NotMapped]
         public int AnoValidade { get; set; }
+
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Data de Validade")]

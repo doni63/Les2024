@@ -161,6 +161,20 @@ namespace SwitchSelect.Service
             cliente.Cpf = model.Cpf;
             cliente.RG = model.RG;
 
+            //Cartoes
+            var cartao = cliente.Cartoes.FirstOrDefault();
+            if(cartao != null)
+            {
+                cartao.NumeroCartao = model.NumeroCartao;
+                cartao.TitularDoCartao = model.TitularDoCartao;
+                cartao.CpfTitularCartao = model.CpfTitularCartao;
+                cartao.DataValidade = new DateTime(model.AnoValidade, model.MesValidade,
+                    DateTime.DaysInMonth(model.AnoValidade, model.MesValidade));
+                cartao.CVV = model.CVV;
+                cartao.TipoCartao = model.TipoCartao;
+                cartao.Cliente = cliente;
+            }
+
             //Telefones           
             var telefone = cliente.Telefones.FirstOrDefault();
             if (telefone != null)
@@ -168,6 +182,7 @@ namespace SwitchSelect.Service
                 telefone.NumeroTelefone = model.NumeroTelefone;
                 telefone.TipoTelefone = model.TipoTelefone;
                 telefone.DDD = model.DDD;
+                telefone.Cliente = cliente;
             }
             else
             {

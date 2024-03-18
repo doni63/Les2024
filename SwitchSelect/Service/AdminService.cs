@@ -13,7 +13,7 @@ namespace SwitchSelect.Service
             _context = context;
         }
 
-        public async Task<Cliente> AdminGetCliente(int? id)
+        public async Task<Cliente> AdminGetCliente(int id)
         {
             if (id == null) return null;
 

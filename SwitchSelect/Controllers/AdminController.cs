@@ -27,7 +27,7 @@ namespace SwitchSelect.Controllers
         {
             if (id == null) { return NotFound(); }
 
-            var cliente = _service.AdminGetCliente(id.Value);
+            var cliente = await _service.AdminGetCliente(id.Value);
             if (cliente == null) { return NotFound(); };
             return View(cliente);
         }
