@@ -92,7 +92,7 @@ namespace SwitchSelect.Service
         //obter cliente por id para editar ou deletar
         public async Task<ClienteViewModel> ObterClientePorIdAsync(int id)
         {
-            var cliente = await _context.Clientes
+            var cliente = await _context.Clientes          
                 .Include(c => c.Telefones)
                 .Include(c => c.Enderecos)
                      .ThenInclude(e => e.Bairro)
@@ -110,6 +110,7 @@ namespace SwitchSelect.Service
             var clienteViewModel = new ClienteViewModel
             {
                 //dados cliente
+                Id = cliente.Id,
                 Nome = cliente.Nome,
                 DataDeNascimento = cliente.DataDeNascimento,
                 Email = cliente.Email,
@@ -256,10 +257,10 @@ namespace SwitchSelect.Service
 
         public async Task<Cliente> BuscarPorCpf(string cpf)
         {
-            
-            return await _context.Clientes
+            var cliente = await _context.Clientes
                 .AsNoTracking()
-                .FirstOrDefaultAsync(c=>c.Cpf == cpf);
+                .FirstOrDefaultAsync(c => c.Cpf == cpf);
+            return cliente;
         }
 
         //metodo para deletar cliente recebendo id de cliente com os dados de endereco, telefoen e cartao, mas sem os dados de bairro, cidade e estado, 

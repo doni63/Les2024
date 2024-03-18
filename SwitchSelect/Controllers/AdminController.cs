@@ -5,20 +5,22 @@ namespace SwitchSelect.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly AdminService _service;
+        private readonly AdminService _Adminservice;
+        
         public IActionResult TelaAdmin()
         {
             return View();
         }
 
-        public AdminController(AdminService service)
+        public AdminController(AdminService Adminservice)
         {
-            _service = service;
+            _Adminservice = Adminservice;
+            
         }
 
         public IActionResult AdminListaCliente()
         {
-            var list = _service.AdminListarClientes();
+            var list = _Adminservice.AdminListarClientes();
             return View(list);
         }
 
@@ -27,7 +29,7 @@ namespace SwitchSelect.Controllers
         {
             if (id == null) { return NotFound(); }
 
-            var cliente = await _service.AdminGetCliente(id.Value);
+            var cliente = await _Adminservice.AdminGetCliente(id.Value);
             if (cliente == null) { return NotFound(); };
             return View(cliente);
         }

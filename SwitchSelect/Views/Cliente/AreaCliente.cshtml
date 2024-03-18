@@ -1,9 +1,68 @@
 ﻿@model SwitchSelect.Models.ViewModels.ClienteViewModel
 
 <h2>Area do cliente</h2>
-
+<h4>Dados pessoais</h4>
 <div>
-    <p>ID: @Model.Id</p>
-    <p>Nome: @Model.Nome</p>
-    
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genero):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataDeNascimento):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataDeNascimento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cpf):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RG):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RG)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DDD):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DDD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroTelefone):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroTelefone)
+        </dd>
+        <hr />
+    </dl>
+    <a asp-controller="Cliente" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar dados pessoais</a>
+   <button>Endereço</button>
+   <button>Metodo de pagamento</button>
+   <button>Voltar</button>
+     
 </div>

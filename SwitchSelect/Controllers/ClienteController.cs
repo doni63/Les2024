@@ -47,7 +47,7 @@ namespace SwitchSelect.Controllers
             var cliente = await _clienteService.BuscarPorCpf(cpf);
 
             if(cliente == null) return NotFound();
-            Console.WriteLine("teste" + cliente.Id);
+           
             return RedirectToAction("AreaCliente", new { id = cliente.Id });
         }
 
