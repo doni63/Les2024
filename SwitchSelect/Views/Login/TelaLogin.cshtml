@@ -1,13 +1,16 @@
-﻿
+﻿@model SwitchSelect.Models.ViewModels.LoginViewModel
     <div class="container">
         <div class="form-group col-sm-4">
             <h1>Login</h1>
-            <form action="#">
-                <label  for="email">E-mail</label>
-                <input class="form-control" type="email" id="email" name="email" >
-                <label  for="password">Senha</label>
-                <input class="form-control" type="password" id="password" name="password" >
-            <button asp-controller="Cliente" asp-action="PesquisarClientePorCpf">Login</button>
+            <form asp-controller="Login" asp-action="Login" >
+            <div class="form-group">
+                <label asp-for="Cpf"></label>
+                <input asp-for="Cpf" type="text" class="form-control" id="CPF" name="CPF">
+                <label >Login</label>
+                <input  type="password" class="form-control" id="senha" name="senha">
+            </div>
+            <br />
+            <button type="submit">Login</button>
                 <p>Não tem conta? <a asp-controller="Cliente" asp-action="Create">Cadastre-se</a></p>
             </form>
         </div>

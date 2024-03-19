@@ -14,11 +14,20 @@ var connectionString = builder.Configuration.GetConnectionString("SwitchSelectCo
 builder.Services.AddDbContext<SwitchSelectContext>(options => options.UseMySql
 (connectionString, ServerVersion.AutoDetect(connectionString)));
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(20); // Tempo de expiração da sessão
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<AdminService>();
-builder.Logging.AddConsole();
-
+builder.Services.AddSession();
+builder.Services.AddControllersWithViews();
+builder.Services.AddMemoryCache(); //habilitando memoria cache
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();//habilitando HttpContextAcessor, 
 
 
 
@@ -33,6 +42,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSession();//habilitando a session
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

@@ -40,20 +40,21 @@ namespace SwitchSelect.Controllers
         }
 
         
-        public async Task<IActionResult> PesquisarPorCpf(string cpf)
-        {
-            if(string.IsNullOrEmpty(cpf)) return NotFound();
+        //public async Task<IActionResult> PesquisarPorCpf(string cpf)
+        //{
+        //    if(string.IsNullOrEmpty(cpf)) return NotFound();
 
-            var cliente = await _clienteService.BuscarPorCpf(cpf);
+        //    var cliente = await _clienteService.BuscarPorCpf(cpf);
 
-            if(cliente == null) return NotFound();
+        //    if(cliente == null) return NotFound();
            
-            return RedirectToAction("AreaCliente", new { id = cliente.Id });
-        }
+        //    return RedirectToAction("AreaCliente", new { id = cliente.Id });
+        //}
 
         public async Task<IActionResult> AreaCliente(int id)
         {
             var cliente = await _clienteService.ObterClientePorIdAsync(id);
+            //var usuario = HttpContext.Session.GetString("usuario");
             if (cliente == null)
             {
                 return NotFound();

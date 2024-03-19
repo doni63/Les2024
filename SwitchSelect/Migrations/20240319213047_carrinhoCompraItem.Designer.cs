@@ -12,8 +12,8 @@ using SwitchSelect.Data;
 namespace SwitchSelect.Migrations
 {
     [DbContext(typeof(SwitchSelectContext))]
-    [Migration("20240315005743_adicionandoCartao")]
-    partial class adicionandoCartao
+    [Migration("20240319213047_carrinhoCompraItem")]
+    partial class carrinhoCompraItem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,32 @@ namespace SwitchSelect.Migrations
                     b.HasIndex("CidadeId");
 
                     b.ToTable("Bairro");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Carrinho.CarrinhoCompraItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CarrinhoCompraId")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<int>("JogoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JogoId");
+
+                    b.ToTable("CarrinhoCompraItens");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Cartao", b =>
@@ -89,7 +115,7 @@ namespace SwitchSelect.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Cartões");
+                    b.ToTable("Cartoes");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Categoria", b =>
@@ -150,6 +176,9 @@ namespace SwitchSelect.Migrations
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("varchar(11)");
+
+                    b.Property<DateTime>("DataDeNascimento")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -359,6 +388,9 @@ namespace SwitchSelect.Migrations
                         .HasMaxLength(3)
                         .HasColumnType("varchar(3)");
 
+                    b.Property<DateTime>("DataDeNascimento")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime>("DataValidade")
                         .HasColumnType("datetime(6)");
 
@@ -429,7 +461,7 @@ namespace SwitchSelect.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ClienteViewModel");
+                    b.ToTable("ClienteViewModels");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Bairro", b =>
@@ -443,10 +475,21 @@ namespace SwitchSelect.Migrations
                     b.Navigation("Cidade");
                 });
 
+            modelBuilder.Entity("SwitchSelect.Models.Carrinho.CarrinhoCompraItem", b =>
+                {
+                    b.HasOne("SwitchSelect.Models.Jogo", "Jogo")
+                        .WithMany()
+                        .HasForeignKey("JogoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Jogo");
+                });
+
             modelBuilder.Entity("SwitchSelect.Models.Cartao", b =>
                 {
                     b.HasOne("SwitchSelect.Models.Cliente", "Cliente")
-                        .WithMany("cartaos")
+                        .WithMany("Cartoes")
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -523,11 +566,11 @@ namespace SwitchSelect.Migrations
 
             modelBuilder.Entity("SwitchSelect.Models.Cliente", b =>
                 {
+                    b.Navigation("Cartoes");
+
                     b.Navigation("Enderecos");
 
                     b.Navigation("Telefones");
-
-                    b.Navigation("cartaos");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Estado", b =>

@@ -45,6 +45,32 @@ namespace SwitchSelect.Migrations
                     b.ToTable("Bairro");
                 });
 
+            modelBuilder.Entity("SwitchSelect.Models.Carrinho.CarrinhoCompraItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CarrinhoCompraId")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<int>("JogoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JogoId");
+
+                    b.ToTable("CarrinhoCompraItens");
+                });
+
             modelBuilder.Entity("SwitchSelect.Models.Cartao", b =>
                 {
                     b.Property<int>("Id")
@@ -444,6 +470,17 @@ namespace SwitchSelect.Migrations
                         .IsRequired();
 
                     b.Navigation("Cidade");
+                });
+
+            modelBuilder.Entity("SwitchSelect.Models.Carrinho.CarrinhoCompraItem", b =>
+                {
+                    b.HasOne("SwitchSelect.Models.Jogo", "Jogo")
+                        .WithMany()
+                        .HasForeignKey("JogoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Jogo");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Cartao", b =>

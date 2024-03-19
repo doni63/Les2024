@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aCTZLl0CT8O4Pp6tmOTTy5XFuihiMWj6/c46gk0cJXfotYACZQzQJf3lSgIDGlyPqZoQo3D6VTtVry1MuQoZng==",
+  "dgSpecHash": "lYWsME6GrAsu7dh7Cwzc63Cy5CXaO3UhHmIZyDWcF1p4uX9YOHicYyPvCcfvnGNM8V4jvIyEynSGXVUd27m/Aw==",
   "success": true,
   "projectFilePath": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\SwitchSelect.csproj",
   "expectedPackageFiles": [
@@ -126,7 +126,7 @@
     "C:\\Users\\doniz\\.nuget\\packages\\nuget.projectmodel\\6.9.1\\nuget.projectmodel.6.9.1.nupkg.sha512",
     "C:\\Users\\doniz\\.nuget\\packages\\nuget.protocol\\6.9.1\\nuget.protocol.6.9.1.nupkg.sha512",
     "C:\\Users\\doniz\\.nuget\\packages\\nuget.versioning\\6.9.1\\nuget.versioning.6.9.1.nupkg.sha512",
-    "C:\\Users\\doniz\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\8.0.1\\pomelo.entityframeworkcore.mysql.8.0.1.nupkg.sha512",
+    "C:\\Users\\doniz\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\8.0.2\\pomelo.entityframeworkcore.mysql.8.0.2.nupkg.sha512",
     "C:\\Users\\doniz\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\doniz\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
     "C:\\Users\\doniz\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",

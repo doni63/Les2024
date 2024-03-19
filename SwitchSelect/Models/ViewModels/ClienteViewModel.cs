@@ -29,6 +29,7 @@ namespace SwitchSelect.Models.ViewModels
 
         [Required(ErrorMessage = "Informe o Cpf")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Cpf inválido")]
+        [Display(Name = "CPF")]
         public string Cpf { get; set; }
 
         [Required(ErrorMessage = "Informe o RG")]
