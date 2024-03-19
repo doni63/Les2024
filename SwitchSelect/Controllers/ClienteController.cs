@@ -61,6 +61,13 @@ namespace SwitchSelect.Controllers
             return View(cliente);
         }
 
+        public async Task<IActionResult> DadosPessoais(int id)
+        {
+            var cliente = await _clienteService.ObterClientePorIdAsync(id);
+            if (cliente == null) return NotFound();
+            return View(cliente);
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

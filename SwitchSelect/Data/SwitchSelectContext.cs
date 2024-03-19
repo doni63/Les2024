@@ -16,6 +16,9 @@ public class SwitchSelectContext : DbContext
     public DbSet<Jogo> Jogos { get; set; }
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Endereco> Enderecos { get; set; }
+    public DbSet<Bairro> Bairros { get; set; }
+    public DbSet<Cidade> Cidades { get; set; }
+    public DbSet<Estado> Estados { get; set; }
     public DbSet<Cartao> Cartoes {  get; set; } 
     public DbSet<Telefone> Telefones {  get; set; }
 

@@ -268,13 +268,26 @@ namespace SwitchSelect.Service
         {
             var cliente = await _context.Clientes
                 .Include(c => c.Enderecos)
+                .ThenInclude(e => e.Bairro)
+                .ThenInclude(b => b.Cidade)
+                .ThenInclude(c => c.Estado)
                 .Include(c => c.Telefones)
                 .Include(c => c.Cartoes)
                 .FirstOrDefaultAsync(c => c.Id == clienteId);
-
+            
             if (cliente == null)
             {
                 throw new Exception("Cliente não encontrado");
+            }
+           // _context.Enderecos.RemoveRange(cliente.Enderecos);
+            foreach(var endereco in cliente.Enderecos)
+            {
+                var bairro = endereco.Bairro;
+                var cidade = bairro?.Cidade;
+                var estado = cidade?.Estado;
+
+               if(estado != null) _context.Estados.Remove(estado);
+                
             }
 
             _context.Clientes.Remove(cliente);
