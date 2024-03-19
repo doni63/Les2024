@@ -15,6 +15,10 @@ namespace SwitchSelect.Models
         [StringLength(16)]
         public string NumeroCartao { get; set; }
 
+        [NotMapped]
+        [Display(Name ="Cartao de final")]
+        public string CartaoQuatroDigito { get; set; }
+
         [Required(ErrorMessage = "Informe nome do titular do cartão")]
         [Display(Name = "Nome do titular")]
         [StringLength(100)]
