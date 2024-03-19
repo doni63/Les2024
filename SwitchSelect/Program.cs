@@ -16,7 +16,7 @@ builder.Services.AddDbContext<SwitchSelectContext>(options => options.UseMySql
 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(20); // Tempo de expiração da sessão
+    //options.IdleTimeout = TimeSpan.FromMinutes(20); // Tempo de expiração da sessão
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
@@ -24,6 +24,7 @@ builder.Services.AddSession(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<AdminService>();
+builder.Services.AddScoped<CarrinhoService>();
 builder.Services.AddSession();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMemoryCache(); //habilitando memoria cache
