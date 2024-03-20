@@ -1,5 +1,7 @@
 ﻿using SwitchSelect.Data;
+using SwitchSelect.Models;
 using SwitchSelect.Models.Carrinho;
+
 
 namespace SwitchSelect.Service;
 
@@ -11,7 +13,8 @@ public class CarrinhoService
     {
         _context = context;
     }
-
+    public string  CarrinhoCompraId { get; set; }
+    
     public static CarrinhoCompra GetCarrinho(IServiceProvider services)
     {
         //definir uma sessão
@@ -32,4 +35,30 @@ public class CarrinhoService
             CarrinhoCompraId = carrinhoId
         };
     }
+
+    public void AdicionarAoCarrinho(Jogo jogo)
+    {
+        var carrinhoCompraItem = _context.CarrinhoCompraItens
+            .SingleOrDefault(s => s.Jogo.Id == jogo.Id &&
+            s.CarrinhoCompraId == CarrinhoCompraId
+            );
+
+        if (carrinhoCompraItem == null)
+        {
+            carrinhoCompraItem = new CarrinhoCompraItem
+            {
+                CarrinhoCompraId = CarrinhoCompraId,
+                Jogo = jogo,
+                Quantidade = 1
+            };
+            _context.CarrinhoCompraItens.Add(carrinhoCompraItem);
+        }
+        else
+        {
+            carrinhoCompraItem.Quantidade++;
+        }
+        _context.SaveChanges();
+    }
+
+    
 }
