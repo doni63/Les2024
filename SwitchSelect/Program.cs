@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SwitchSelect.Data;
+using SwitchSelect.Repositorios;
+using SwitchSelect.Repositorios.Interfaces;
 using SwitchSelect.Service;
 
 
@@ -25,6 +27,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<AdminService>();
 builder.Services.AddScoped<CarrinhoService>();
+builder.Services.AddTransient<IJogoRepositorio, JogoRepositorio>();
+builder.Services.AddTransient<ICategoriaRepositorio, CategoriaRepositorio>();
 builder.Services.AddSession();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMemoryCache(); //habilitando memoria cache
