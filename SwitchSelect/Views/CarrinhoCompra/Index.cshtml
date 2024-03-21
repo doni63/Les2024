@@ -1,9 +1,10 @@
-﻿@{
+﻿@model SwitchSelect.Models.ViewModels.CarrinhoCompraViewModel;
+@{
     ViewData["Title"] = "Carrinho de Compra";
 }
 <form>
     <div>
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered table-striped">
             <thead class="">
                 <tr>
                     <th class="col-sm-2">Imagem</th>
@@ -12,18 +13,24 @@
                     <th class="col-sm-2">Preço (R$)</th>
                     <th class="col-sm-2">Sub-total(R$)</th>
                     <th></th>
-
                 </tr>
             </thead>
             <tbody class=" text-center">
-                <tr>
-                    <td><img src="~/imagens/acr_thumbnail.png" class="img-fluid" /></td>
-                    <td>Another Code Revollution</td>
-                    <td>1</td>
-                    <td>249</td>
-                    <td>249</td>
-                    <td class="bi bi-trash"></td>
-                </tr>
+                @foreach(var item in Model.CarrinhoCompra.CarrinhosCompraItens)
+                {
+                    <tr>
+                        <td class="text-center">@item.Jogo.ImagemUrl</td>
+                        <td class="text-center">@item.Jogo.Nome</td>
+                        <td class="text-center">@item.Quantidade</td>
+                        <td class="text-center">@item.Jogo.Preco.ToString("c")</td>
+
+                        <td class="text-center">
+                            @((item.Quantidade * item.Jogo.Preco).ToString("c"))
+                        </td>
+                        <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinho"
+                        asp-route-id="@item.Jogo.Id"> <i class="bi bi-trash"></i> </a>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

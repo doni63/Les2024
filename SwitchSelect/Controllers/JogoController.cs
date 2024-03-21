@@ -21,5 +21,9 @@ namespace SwitchSelect.Controllers
             return View(jogoListViewModel);
         }
        
+        public IActionResult JogoSelecionado()
+        {
+            return View();
+        }
     }
 }
