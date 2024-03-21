@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SwitchSelect.Data;
 
 namespace SwitchSelect.Models.Carrinho;
@@ -35,7 +36,7 @@ public class CarrinhoCompra
             CarrinhoCompraId = carrinhoId
         };
     }
-
+    
     public void AdicionarAoCarrinho(Jogo jogo)
     {
         var carrinhoCompraItem = _context.CarrinhoCompraItens
