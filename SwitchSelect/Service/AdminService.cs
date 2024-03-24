@@ -13,6 +13,11 @@ namespace SwitchSelect.Service
             _context = context;
         }
 
+        public List<Cliente> AdminListarClientes()
+        {
+            return _context.Clientes.ToList();
+        }
+
         public string FormatarUltimosQuatroDigitos(string numeroCartao)
         {
             if (numeroCartao.Length > 4)
@@ -48,10 +53,17 @@ namespace SwitchSelect.Service
             return cliente;
         }
 
-        public List<Cliente> AdminListarClientes()
+        public List<Cliente> AdminPesquisarCliente(string pesquisa)
         {
-            return _context.Clientes.ToList();
-        }
+            var clientes = _context.Clientes.AsQueryable();
 
+            if(! String.IsNullOrEmpty(pesquisa))
+            {
+                clientes = clientes.Where(c => c.Nome.Contains(pesquisa) 
+                || c.Cpf.Contains(pesquisa));
+            }
+            return clientes.ToList();
+        }
+        
     }
 }

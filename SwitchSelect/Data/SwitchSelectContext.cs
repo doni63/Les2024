@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SwitchSelect.Models;
 using SwitchSelect.Models.Carrinho;
+using SwitchSelect.Models.Estoque;
 using SwitchSelect.Models.ViewModels;
 
 
@@ -15,6 +16,7 @@ public class SwitchSelectContext : DbContext
     }
     public DbSet<Categoria> Categorias { get; set; }
     public DbSet<Jogo> Jogos { get; set; }
+    public DbSet<Estoque> Estoques { get; set; }
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Endereco> Enderecos { get; set; }
     public DbSet<Bairro> Bairros { get; set; }

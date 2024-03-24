@@ -1,10 +1,6 @@
 ﻿using SwitchSelect.Data;
 using SwitchSelect.Models.ViewModels;
 using SwitchSelect.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http.HttpResults;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Runtime.ConstrainedExecution;
 using Microsoft.EntityFrameworkCore;
 
 namespace SwitchSelect.Service
@@ -12,15 +8,19 @@ namespace SwitchSelect.Service
     public class ClienteService
     {
         private readonly SwitchSelectContext _context;
+       
 
         public ClienteService(SwitchSelectContext context)
         {
             _context = context;
+           
         }
 
-        //criar cliente
+        ////criar cliente
         public async Task CriarClienteAsync(ClienteViewModel model)
         {
+
+
             var cliente = new Cliente
             {
                 Nome = model.Nome,

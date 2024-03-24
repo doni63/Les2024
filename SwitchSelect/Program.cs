@@ -8,14 +8,13 @@ using SwitchSelect.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-//fazendo get string de conexao
+// Add services to the container
 var connectionString = builder.Configuration.GetConnectionString("SwitchSelectConnection");
 
 builder.Services.AddDbContext<SwitchSelectContext>(options => options.UseMySql
 (connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddSession(options =>
 {

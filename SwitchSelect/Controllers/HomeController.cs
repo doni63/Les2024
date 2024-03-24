@@ -1,29 +1,33 @@
 using Microsoft.AspNetCore.Mvc;
+using SwitchSelect.Data;
 using SwitchSelect.Models;
+using SwitchSelect.Models.ViewModels;
+using SwitchSelect.Repositorios.Interfaces;
 using System.Diagnostics;
 
 namespace SwitchSelect.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // private readonly ILogger<HomeController> _logger;
+        private IJogoRepositorio _jogoRepositorio;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(/**ILogger<HomeController> logger,**/ IJogoRepositorio jogoRepositorio)
         {
-            _logger = logger;
+            //_logger = logger;
+            _jogoRepositorio = jogoRepositorio;
         }
 
         public IActionResult Index()
         {
-            return View();
+
+            var jogoViewModel = new JogoListViewModel();
+            jogoViewModel.Jogos = _jogoRepositorio.Jogos;
+            return View(jogoViewModel);
         }
 
-       
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
+
     }
 }

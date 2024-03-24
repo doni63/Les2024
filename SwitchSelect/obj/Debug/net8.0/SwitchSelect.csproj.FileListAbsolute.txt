@@ -254,3 +254,4 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\o
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.pdb
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.genruntimeconfig.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\ref\SwitchSelect.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\AutoMapper.dll

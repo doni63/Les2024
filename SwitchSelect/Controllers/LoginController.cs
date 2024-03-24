@@ -33,12 +33,12 @@ namespace SwitchSelect.Controllers
                     HttpContext.Session.SetInt32("Id", usuario.Id);
                     return RedirectToAction("AreaCliente","Cliente", new { id = usuario.Id });
                 }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "CPF não encontrado");
-                }
+                //else
+                //{
+                //    ModelState.AddModelError(string.Empty, "CPF não encontrado");
+                //}
             }
-            return View(model);
+            return View("TelaLogin",model);
         }
     }
 }

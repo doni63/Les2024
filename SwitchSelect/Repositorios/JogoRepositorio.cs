@@ -20,15 +20,10 @@ public class JogoRepositorio : IJogoRepositorio
                               .Where(j => j.IsJogoPreferido == true)
                               .Include(c => c.Categoria);
 
-    public IEnumerable<Jogo> LanchesPreferidos => throw new NotImplementedException();
-
     public Jogo GetJogoPorId(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Jogo GetLanchePorId(int id)
     {
         return _context.Jogos.FirstOrDefault(j => j.Id == id);
     }
+
+    
 }

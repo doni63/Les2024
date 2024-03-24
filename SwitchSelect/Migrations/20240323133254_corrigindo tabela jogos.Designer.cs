@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SwitchSelect.Data;
 
@@ -11,9 +12,11 @@ using SwitchSelect.Data;
 namespace SwitchSelect.Migrations
 {
     [DbContext(typeof(SwitchSelectContext))]
-    partial class SwitchSelectContextModelSnapshot : ModelSnapshot
+    [Migration("20240323133254_corrigindo tabela jogos")]
+    partial class corrigindotabelajogos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -270,19 +273,6 @@ namespace SwitchSelect.Migrations
                     b.ToTable("Estados");
                 });
 
-            modelBuilder.Entity("SwitchSelect.Models.Estoque.Estoque", b =>
-                {
-                    b.Property<int>("JogoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("JogoId");
-
-                    b.ToTable("Estoque");
-                });
-
             modelBuilder.Entity("SwitchSelect.Models.Jogo", b =>
                 {
                     b.Property<int>("Id")
@@ -535,17 +525,6 @@ namespace SwitchSelect.Migrations
                     b.Navigation("Bairro");
 
                     b.Navigation("Cliente");
-                });
-
-            modelBuilder.Entity("SwitchSelect.Models.Estoque.Estoque", b =>
-                {
-                    b.HasOne("SwitchSelect.Models.Jogo", "Jogo")
-                        .WithMany()
-                        .HasForeignKey("JogoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Jogo");
                 });
 
             modelBuilder.Entity("SwitchSelect.Models.Jogo", b =>
