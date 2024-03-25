@@ -10,7 +10,7 @@ namespace SwitchSelect.Models.ViewModels
     {
         // Informações do Cliente
         public int Id { get; set; }
-
+        
         [Required(ErrorMessage = "Informe o nome")]
         [StringLength(100, ErrorMessage = "Número máximo de caracter 100")]
         public string Nome { get; set; }
@@ -48,6 +48,7 @@ namespace SwitchSelect.Models.ViewModels
         public string NumeroTelefone { get; set; }
 
         // Informações de Endereço
+        
         [Required]
         [Display(Name ="Tipo de endereço")]
         public TipoEndereco TipoEndereco { get; set; }

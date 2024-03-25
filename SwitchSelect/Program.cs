@@ -30,6 +30,7 @@ builder.Services.AddScoped<ConvertService>();
 builder.Services.AddTransient<IJogoRepositorio, JogoRepositorio>();
 builder.Services.AddTransient<ICategoriaRepositorio, CategoriaRepositorio>();
 builder.Services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
+builder.Services.AddTransient<IEnderecoRepositorio, EnderecoRepositorio>();
 builder.Services.AddScoped(c => CarrinhoCompra.GetCarrinho(c));
 builder.Services.AddSession();
 builder.Services.AddMemoryCache(); //habilitando memoria cache

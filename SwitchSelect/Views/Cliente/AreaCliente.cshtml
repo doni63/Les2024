@@ -12,10 +12,10 @@
             @Html.DisplayFor(model => model.Nome)
         </dd>
         
-        <hr />
+
     </dl>
     <a asp-controller="Cliente" asp-action="DadosPessoais" asp-route-id="@Model.Id" class="btn btn-primary">Dados pessoais</a>
-    <a class="btn btn-primary">Endereço</a>
+    <a asp-controller="Endereco" asp-action="EnderecoList" asp-route-ClienteId="@Model.Id" class="btn btn-primary">Endereço</a>
     <a class="btn btn-primary">Metodo de pagamento</a>
     <a asp-controller="Login" asp-action="TelaLogin" class="btn btn-link">Voltar</a>
      

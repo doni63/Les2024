@@ -51,5 +51,6 @@
     </dd>
     
 </div>
-<a class="col-sm-2 btn btn-primary">Editar dados</a>
+<a asp-controller="Cliente" asp-action="Edit" asp-route-id="@Model?.Id" class="col-sm-2 btn btn-primary">Editar dados</a>
+
 <a asp-action="Delete" asp-route-id="@Model.Id" class="col-sm-2 btn btn-danger ">Excluir minha conta</a>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SwitchSelect.Models.ViewModels.EnderecoViewModel>
+
+<h2>Endereços</h2>
+
+@if (Model.Any())
+{
+    <div class="list-group">
+        @foreach (var endereco in Model)
+        {
+            <a class="list-group-item list-group-item-action flex-column align-items-start">
+                <small>@endereco.TipoEndereco</small>
+                <div class="d-flex w-100 justify-content-between">                   
+                    <h5 class="mb-1">@endereco.TipoLogradouro,
+                        @endereco.Logradouro,
+                        @endereco.Numero,
+                        @endereco.CEP</h5>
+                </div>
+                <p class="mb-1">@endereco.Complemento</p>
+                <small>@endereco.Cidade, @endereco.Estado</small>
+            </a>
+        }
+    </div>
+}
+else
+{
+    <p>Nenhum endereço cadastrado.</p>
+}
+<a class="btn btn-primary">+ Endereço</a>
+<a asp-controller="Cliente" asp-action="AreaCliente" asp-route-id="@ViewData["ClienteID"]" class="btn btn-link">Voltar</a>
