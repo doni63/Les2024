@@ -94,7 +94,7 @@ namespace SwitchSelect.Models.ViewModels
 
         [NotMapped]
         [Display(Name = "Cartao de final")]
-        public string CartaoQuatroDigito { get; set; }
+        public string? CartaoQuatroDigito { get; set; }
 
         [Required(ErrorMessage = "Informe nome do titular do cartão")]
         [Display(Name = "Nome do titular")]

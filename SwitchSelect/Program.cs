@@ -23,19 +23,17 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<AdminService>();
 builder.Services.AddScoped<CarrinhoService>();
+builder.Services.AddScoped<ConvertService>();
 builder.Services.AddTransient<IJogoRepositorio, JogoRepositorio>();
 builder.Services.AddTransient<ICategoriaRepositorio, CategoriaRepositorio>();
+builder.Services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
 builder.Services.AddScoped(c => CarrinhoCompra.GetCarrinho(c));
 builder.Services.AddSession();
-builder.Services.AddControllersWithViews();
 builder.Services.AddMemoryCache(); //habilitando memoria cache
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();//habilitando HttpContextAcessor, 
-
-
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
 var app = builder.Build();
