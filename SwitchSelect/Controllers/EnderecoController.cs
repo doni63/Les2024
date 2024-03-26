@@ -1,22 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SwitchSelect.Models;
 using SwitchSelect.Models.ViewModels;
 using SwitchSelect.Repositorios.Interfaces;
+using SwitchSelect.Service;
 
 namespace SwitchSelect.Controllers;
 
 public class EnderecoController : Controller
 {
     private readonly IEnderecoRepositorio _enderecoRepositorio;
-    
-    public EnderecoController(IEnderecoRepositorio enderecoRepositorio)
+    private readonly EnderecoService _enderecoService;
+
+    public EnderecoController(IEnderecoRepositorio enderecoRepositorio, EnderecoService enderecoService)
     {
         _enderecoRepositorio = enderecoRepositorio;
-       
+        _enderecoService = enderecoService;
     }
-    public IActionResult Index()
-    {
-        return View();
-    }
+
 
     public IActionResult EnderecoList(int clienteId)
     {
@@ -25,8 +25,6 @@ public class EnderecoController : Controller
         // Convertendo de Model para ViewModel
         var enderecosViewModel = enderecos.Select(e => new EnderecoViewModel
         {
-            // Supondo que ambos, Endereco e EnderecoViewModel, têm as mesmas propriedades.
-            // Faça a atribuição correspondente aqui.
             Id = e.Id,
             ClienteID = clienteId,
             Logradouro = e.Logradouro,
@@ -36,10 +34,32 @@ public class EnderecoController : Controller
             Cidade = e.Bairro.Cidade.Descricao,
             Estado = e.Bairro.Cidade.Estado.Descricao,
             CEP = e.CEP
-            // Continue com as outras propriedades necessárias.
+           
         }).ToList();
         ViewData["ClienteID"] = clienteId;
         return View(enderecosViewModel);
     }
+
+    public IActionResult Create(int clienteId)
+    {
+        var viewModel = new EnderecoViewModel
+        { ClienteID = clienteId };
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(EnderecoViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        await _enderecoService.CriarEnderecoAsync(model);
+
+        // Redireciona para a lista de endereços do cliente, passando o clienteId
+        return RedirectToAction(nameof(EnderecoList), new { clienteId = model.ClienteID });
+    }
+
 
 }

@@ -10,10 +10,10 @@
             <a class="list-group-item list-group-item-action flex-column align-items-start">
                 <small>@endereco.TipoEndereco</small>
                 <div class="d-flex w-100 justify-content-between">                   
-                    <h5 class="mb-1">@endereco.TipoLogradouro,
-                        @endereco.Logradouro,
-                        @endereco.Numero,
-                        @endereco.CEP</h5>
+                    <h5 class="mb-1">@endereco.TipoLogradouro
+                        @endereco.Logradouro, 
+                        N°. @endereco.Numero,
+                        CEP. @endereco.CEP</h5>
                 </div>
                 <p class="mb-1">@endereco.Complemento</p>
                 <small>@endereco.Cidade, @endereco.Estado</small>
@@ -25,5 +25,5 @@ else
 {
     <p>Nenhum endereço cadastrado.</p>
 }
-<a class="btn btn-primary">+ Endereço</a>
+<a asp-controller="Endereco" asp-action="Create" asp-route-clienteId="@ViewData["ClienteID"]" class="btn btn-primary">+ Endereço</a>
 <a asp-controller="Cliente" asp-action="AreaCliente" asp-route-id="@ViewData["ClienteID"]" class="btn btn-link">Voltar</a>

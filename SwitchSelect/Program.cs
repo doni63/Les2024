@@ -27,6 +27,7 @@ builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<AdminService>();
 builder.Services.AddScoped<CarrinhoService>();
 builder.Services.AddScoped<ConvertService>();
+builder.Services.AddScoped<EnderecoService>();
 builder.Services.AddTransient<IJogoRepositorio, JogoRepositorio>();
 builder.Services.AddTransient<ICategoriaRepositorio, CategoriaRepositorio>();
 builder.Services.AddTransient<IClienteRepositorio, ClienteRepositorio>();

@@ -29,10 +29,6 @@ namespace SwitchSelect.Controllers
         {
             return View();
         }
-        public IActionResult Create()
-        {
-            return View();
-        }
 
         public IActionResult PesquisarClientePorCpf()
         {
@@ -69,6 +65,10 @@ namespace SwitchSelect.Controllers
             return View(cliente);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -258,7 +258,7 @@ namespace SwitchSelect.Service
 
         public List<Cliente> ListarClientes()
         {
-            return _context.Clientes.ToList();
+            return _cliRepositorio.Clientes.ToList();
         }
 
         public async Task<Cliente> BuscarPorCpf(string cpf)
