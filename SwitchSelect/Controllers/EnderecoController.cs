@@ -61,5 +61,30 @@ public class EnderecoController : Controller
         return RedirectToAction(nameof(EnderecoList), new { clienteId = model.ClienteID });
     }
 
+    [HttpGet]
+    public IActionResult Delete(int? id)
+    {
+        if(id == null)
+        {
+            return NotFound();
+        }
+        var endereco =  _enderecoRepositorio.Enderecos
+            .FirstOrDefault(e => e.Id == id);
+        if (endereco == null) { return NotFound(); }
+
+        var viewModel = new EnderecoViewModel
+        {
+            Id = endereco.Id,
+            Logradouro = endereco.Logradouro,
+            Numero = endereco.Numero
+        };
+        return View(viewModel);
+    }
+    [HttpPost, ActionName("Delete")]
+    public async Task<IActionResult> DeleteConfirmedAsync(int id)
+    {
+       await _enderecoService.DeleteEndereco(id);
+        return RedirectToAction("AreaCliente","Cliente");
+    }
 
 }

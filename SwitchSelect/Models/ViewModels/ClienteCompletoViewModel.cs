@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SwitchSelect.Models.ViewModels
 {
-    public class ClienteViewModel
+    public class ClienteCompletoViewModel
     {
         // Informações do Cliente
         public int Id { get; set; }

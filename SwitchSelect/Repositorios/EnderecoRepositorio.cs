@@ -29,4 +29,12 @@ public class EnderecoRepositorio : IEnderecoRepositorio
             .ToList();
     }
 
+    public Endereco? GetEnderecoPorId(int enderecoId)
+    {
+        return _context.Enderecos
+            .Include(e => e.Bairro)
+                .ThenInclude(b => b.Cidade)
+                    .ThenInclude(c => c.Estado)
+            .FirstOrDefault(e => e.Id == enderecoId);
+    }
 }

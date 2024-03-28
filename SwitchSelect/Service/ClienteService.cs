@@ -20,7 +20,7 @@ namespace SwitchSelect.Service
         }
 
         ////criar cliente
-        public async Task CriarClienteAsync(ClienteViewModel model)
+        public async Task CriarClienteAsync(ClienteCompletoViewModel model)
         {
 
 
@@ -93,7 +93,7 @@ namespace SwitchSelect.Service
         }
 
         //obter cliente por id para editar ou deletar
-        public async Task<ClienteViewModel> ObterClientePorIdAsync(int id)
+        public async Task<ClienteCompletoViewModel> ObterClientePorIdAsync(int id)
         {
             //var cliente = await _context.Clientes          
             //    .Include(c => c.Telefones)
@@ -147,7 +147,7 @@ namespace SwitchSelect.Service
         }
 
         //método para editar cliente obetendo cliente por id e recebendo dados do banco, convertendo objeto cliente para objeto clienteviewmodel
-        public async Task<bool> EditarClienteAsync(int id, ClienteViewModel model)
+        public async Task<bool> EditarClienteAsync(int id, ClienteCompletoViewModel model)
         {
             var cliente = await _context.Clientes
                 .Include(c => c.Telefones)

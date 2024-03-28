@@ -20,5 +20,10 @@ namespace SwitchSelect.Controllers
         {
             return View();
         }
+
+        public IActionResult PedidoList()
+        {
+            return View();
+        }
     }
 }

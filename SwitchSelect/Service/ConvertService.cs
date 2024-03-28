@@ -17,11 +17,11 @@ public class ConvertService
         _cliRepositorio = cliRepositorio;
     }
 
-    public ClienteViewModel ConverterParaClienteViewModel(Cliente cliente)
+    public ClienteCompletoViewModel ConverterParaClienteViewModel(Cliente cliente)
     {
         if (cliente is null) return null;
 
-        var clienteViewModel = new ClienteViewModel
+        var clienteViewModel = new ClienteCompletoViewModel
         {
             //dados cliente
             Id = cliente.Id,

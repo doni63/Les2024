@@ -72,7 +72,7 @@ namespace SwitchSelect.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromForm] ClienteViewModel model)
+        public async Task<IActionResult> Create([FromForm] ClienteCompletoViewModel model)
         {
             if (ModelState.IsValid)
             {                      
@@ -100,7 +100,7 @@ namespace SwitchSelect.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [FromForm] ClienteViewModel clienteViewModel)
+        public async Task<IActionResult> Edit(int id, [FromForm] ClienteCompletoViewModel clienteViewModel)
         {
             if (id != clienteViewModel.Id)
             {
@@ -112,7 +112,8 @@ namespace SwitchSelect.Controllers
                 var sucesso = await _clienteService.EditarClienteAsync(id, clienteViewModel);
                 if (sucesso)
                 {
-                    return RedirectToAction("ListaCliente","Cliente"); 
+                    //return RedirectToAction("AreaCliente","Cliente"); 
+                    return RedirectToAction("AreaCliente", "Cliente", new { id = id });
                 }
                 else
                 {
@@ -130,7 +131,7 @@ namespace SwitchSelect.Controllers
             }
 
             var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(c => c.Id == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -147,7 +148,6 @@ namespace SwitchSelect.Controllers
 
 
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _clienteService.DeleteClienteAsync(id);

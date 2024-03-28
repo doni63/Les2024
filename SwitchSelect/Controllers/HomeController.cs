@@ -20,11 +20,16 @@ namespace SwitchSelect.Controllers
 
         public IActionResult Index()
         {
-
-            var jogoViewModel = new JogoListViewModel();
-            jogoViewModel.Jogos = _jogoRepositorio.Jogos;
-            return View(jogoViewModel);
+            return View();
         }
+
+        //public IActionResult Index()
+        //{
+
+        //    var jogoViewModel = new JogoListViewModel();
+        //    jogoViewModel.Jogos = _jogoRepositorio.Jogos;
+        //    return View(jogoViewModel);
+        //}
 
 
 
