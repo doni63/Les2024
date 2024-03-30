@@ -84,7 +84,24 @@ public class EnderecoController : Controller
     public async Task<IActionResult> DeleteConfirmedAsync(int id)
     {
        await _enderecoService.DeleteEndereco(id);
-        return RedirectToAction("AreaCliente","Cliente");
+        // Redireciona para a lista de endereços do cliente, passando o clienteId
+        return RedirectToAction(nameof(EnderecoList), new { clienteId = id });
+    }
+
+    public async Task <IActionResult> Edit(int? id)
+    {
+        if(id == null)
+        {
+            return NotFound();
+        }
+
+        var enderecoViewModel = _enderecoService.ObterEnderecoPorId(id.Value);
+        if(enderecoViewModel is null)
+        {
+            return NotFound();
+        }
+
+        return View(enderecoViewModel);
     }
 
 }

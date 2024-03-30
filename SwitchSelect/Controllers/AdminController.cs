@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SwitchSelect.Service;
 using SwitchSelect.Models;
+using SwitchSelect.Models.ViewModels;
 
 namespace SwitchSelect.Controllers
 {
@@ -41,7 +42,6 @@ namespace SwitchSelect.Controllers
             if (cliente == null) { return NotFound(); };
             return View(cliente);
         }
-
 
     }
 }

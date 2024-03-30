@@ -30,6 +30,7 @@ namespace SwitchSelect.Models
         public string CpfTitularCartao { get; set; }
         
         [Range(1, 12, ErrorMessage = "O mês de validade deve estar entre 1 e 12.")]
+        [MesValidade(ErrorMessage = "O mês de validade deve ser maior que o mês atual.")]
         [NotMapped]
         public int MesValidade { get; set; }
 
@@ -38,10 +39,10 @@ namespace SwitchSelect.Models
         [NotMapped]
         public int AnoValidade { get; set; }
 
-        [Required]
+        
         [DataType(DataType.Date)]
         [Display(Name = "Data de Validade")]
-        public DateTime DataValidade { get; set; }
+        public DateTime? DataValidade { get; set; }
 
         [Required(ErrorMessage = "Informe o CVV")]
         [Display(Name = "CVV")]

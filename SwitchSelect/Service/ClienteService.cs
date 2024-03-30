@@ -95,15 +95,6 @@ namespace SwitchSelect.Service
         //obter cliente por id para editar ou deletar
         public async Task<ClienteCompletoViewModel> ObterClientePorIdAsync(int id)
         {
-            //var cliente = await _context.Clientes          
-            //    .Include(c => c.Telefones)
-            //    .Include(c => c.Enderecos)
-            //         .ThenInclude(e => e.Bairro)
-            //         .ThenInclude(b => b.Cidade)
-            //         .ThenInclude(c => c.Estado)
-            //    .Include(c => c.Cartoes)
-            //    .AsNoTracking()
-            //    .FirstOrDefaultAsync(c => c.Id == id);
 
             var cliente = _cliRepositorio.GetPorId(id);
 
@@ -203,8 +194,6 @@ namespace SwitchSelect.Service
             }
             //Enderecos
 
-
-
             var endereco = cliente.Enderecos.FirstOrDefault();
             if (endereco != null)
             {
@@ -253,7 +242,7 @@ namespace SwitchSelect.Service
 
         private bool ClienteExists(int id)
         {
-            return _context.Clientes.Any(e => e.Id == id);
+            return _context.Clientes.Any(c => c.Id == id);
         }
 
         public List<Cliente> ListarClientes()

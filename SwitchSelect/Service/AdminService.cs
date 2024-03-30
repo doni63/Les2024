@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SwitchSelect.Data;
 using SwitchSelect.Models;
+using SwitchSelect.Models.ViewModels;
+using SwitchSelect.Repositorios.Interfaces;
 
 namespace SwitchSelect.Service
 {
     public class AdminService
     {
         private readonly SwitchSelectContext _context;
+        
 
         public AdminService(SwitchSelectContext context)
         {
@@ -64,6 +67,6 @@ namespace SwitchSelect.Service
             }
             return clientes.ToList();
         }
-        
+
     }
 }

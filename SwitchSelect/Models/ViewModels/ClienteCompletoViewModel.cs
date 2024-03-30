@@ -10,7 +10,7 @@ namespace SwitchSelect.Models.ViewModels
     {
         // Informações do Cliente
         public int Id { get; set; }
-        
+
         [Required(ErrorMessage = "Informe o nome")]
         [StringLength(100, ErrorMessage = "Número máximo de caracter 100")]
         public string Nome { get; set; }
@@ -110,6 +110,7 @@ namespace SwitchSelect.Models.ViewModels
         
         [Required(ErrorMessage = "Informe mês de validade do cartão")]
         [Range(1, 12, ErrorMessage = "O mês de validade deve estar entre 1 e 12.")]
+        [MesValidade(ErrorMessage = "O mês de validade deve ser maior que o mês atual.")]
         [NotMapped]
         public int MesValidade { get; set; }
 
@@ -118,10 +119,10 @@ namespace SwitchSelect.Models.ViewModels
         [NotMapped]
         public int AnoValidade { get; set; }
 
-        [Required]
+        
         [DataType(DataType.Date)]
         [Display(Name = "Data de Validade")]
-        public DateTime DataValidade { get; set; }
+        public DateTime? DataValidade { get; set; }
 
         [Required(ErrorMessage = "Informe o CVV")]
         [Display(Name = "CVV")]

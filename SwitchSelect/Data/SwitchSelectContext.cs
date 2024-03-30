@@ -29,6 +29,8 @@ public class SwitchSelectContext : DbContext
 public DbSet<ClienteCompletoViewModel> ClienteViewModels { get; set; } = default!;
 
 public DbSet<SwitchSelect.Models.ViewModels.EnderecoViewModel> EnderecoViewModel { get; set; } = default!;
+
+public DbSet<SwitchSelect.Models.ViewModels.ClienteDadosPessoaisViewModel> ClienteDadosPessoaisViewModel { get; set; } = default!;
     
 
     

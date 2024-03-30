@@ -82,8 +82,9 @@ namespace SwitchSelect.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, string origem)
         {
+            ViewBag.Origem = origem;
             if (id == null)
             {
                 return NotFound();
@@ -100,8 +101,9 @@ namespace SwitchSelect.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [FromForm] ClienteCompletoViewModel clienteViewModel)
+        public async Task<IActionResult> Edit(int id, [FromForm] ClienteCompletoViewModel clienteViewModel, string origem)
         {
+
             if (id != clienteViewModel.Id)
             {
                 return NotFound();
@@ -109,11 +111,21 @@ namespace SwitchSelect.Controllers
 
             if (ModelState.IsValid)
             {
+
                 var sucesso = await _clienteService.EditarClienteAsync(id, clienteViewModel);
                 if (sucesso)
                 {
-                    //return RedirectToAction("AreaCliente","Cliente"); 
-                    return RedirectToAction("AreaCliente", "Cliente", new { id = id });
+                    if(origem== "editarCliente")
+                    {
+                        
+                        return RedirectToAction("AreaCliente", "Cliente", new { id = id });
+                    }
+                    else if(origem== "adminInfo")
+                    {
+                        
+                        return RedirectToAction("AdminListaCliente", "Admin");
+                    }
+                   
                 }
                 else
                 {
@@ -154,5 +166,12 @@ namespace SwitchSelect.Controllers
             return RedirectToAction("ListaCliente", "Cliente");
         }
 
+        //public async Task<IActionResult> EditDadosPessoais(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //}
     }
 }
