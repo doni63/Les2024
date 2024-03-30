@@ -88,19 +88,50 @@ public class EnderecoController : Controller
         return RedirectToAction(nameof(EnderecoList), new { clienteId = id });
     }
 
-    public async Task <IActionResult> Edit(int? id)
+    public IActionResult Edit(int? id, int clienteId)
     {
         if(id == null)
         {
             return NotFound();
         }
 
-        var enderecoViewModel = _enderecoService.ObterEnderecoPorId(id.Value);
+        var enderecoViewModel =   _enderecoService.ObterEnderecoPorId(id.Value);
+        enderecoViewModel.ClienteID = clienteId;
         if(enderecoViewModel is null)
         {
             return NotFound();
         }
 
+        return View(enderecoViewModel);
+    }
+
+    [HttpPost]
+    
+    public async Task<IActionResult> EditAsync(int id, [FromForm] EnderecoViewModel enderecoViewModel)
+    {
+        
+        if(id != enderecoViewModel.Id)
+        {
+            return NotFound();
+        }
+
+        if(ModelState.IsValid)
+        {
+            var sucesso = await _enderecoService.EditEnderecoAsync(id, enderecoViewModel);
+
+            if (sucesso)
+            {
+
+                var clienteId = enderecoViewModel.ClienteID;
+                return RedirectToAction("EnderecoList", "Endereco", new { clienteId = clienteId });
+               // return View("EnderecoList", enderecos);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+        
         return View(enderecoViewModel);
     }
 
