@@ -54,10 +54,26 @@ public class ConvertService
         return clienteViewModel;
     }
 
-    //public Cliente ConverterParaCliente(ClienteViewModel viewModel)
-    //{
-    //    if (viewModel is null) return null;
-
-    //}
+   public ClienteDadosPessoaisViewModel ConverterParaClienteDadosPessoaisViewModel(Cliente cliente)
+    {
+        if(cliente is null)
+        {
+            return null;
+        }
+        var clienteViewModel = new ClienteDadosPessoaisViewModel
+        {
+            Id = cliente.Id,
+            Nome = cliente.Nome,
+            DataDeNascimento = cliente.DataDeNascimento,
+            Email = cliente.Email,
+            Genero = cliente.Genero,
+            Cpf = cliente.Cpf,
+            RG = cliente.RG,
+            NumeroTelefone = cliente.Telefones.FirstOrDefault()?.NumeroTelefone,
+            TipoTelefone = (TipoTelefone)cliente.Telefones.FirstOrDefault()?.TipoTelefone,
+            DDD = cliente.Telefones.FirstOrDefault()?.DDD
+        };
+        return clienteViewModel;
+    }
 }
 

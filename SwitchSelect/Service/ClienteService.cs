@@ -93,7 +93,7 @@ namespace SwitchSelect.Service
         }
 
         //obter cliente por id para editar ou deletar
-        public async Task<ClienteCompletoViewModel> ObterClientePorIdAsync(int id)
+        public ClienteCompletoViewModel ObterClientePorId(int id)
         {
 
             var cliente = _cliRepositorio.GetPorId(id);
@@ -102,39 +102,7 @@ namespace SwitchSelect.Service
             {
                 return null;
             }
-
-            //var clienteViewModel = new ClienteViewModel
-            //{
-            //    //dados cliente
-            //    Id = cliente.Id,
-            //    Nome = cliente.Nome,
-            //    DataDeNascimento = cliente.DataDeNascimento,
-            //    Email = cliente.Email,
-            //    Genero = cliente.Genero,
-            //    Cpf = cliente.Cpf,
-            //    RG = cliente.RG,
-            //    NumeroTelefone = cliente.Telefones.FirstOrDefault()?.NumeroTelefone,
-            //    TipoTelefone = (TipoTelefone)cliente.Telefones.FirstOrDefault()?.TipoTelefone,
-            //    DDD = cliente.Telefones.FirstOrDefault()?.DDD,
-            //    Estado = cliente.Enderecos.FirstOrDefault()?.Bairro.Cidade.Estado.Descricao,
-            //    Cidade = cliente.Enderecos.FirstOrDefault()?.Bairro.Cidade.Descricao,
-            //    Bairro = cliente.Enderecos.FirstOrDefault()?.Bairro.Descricao,
-            //    Logradouro = cliente.Enderecos.FirstOrDefault()?.Logradouro,
-            //    Numero = cliente.Enderecos.FirstOrDefault()?.Numero,
-            //    CEP = cliente.Enderecos.FirstOrDefault()?.CEP,
-            //    TipoEndereco = (TipoEndereco)cliente.Enderecos.FirstOrDefault()?.TipoEndereco,
-            //    TipoLogradouro = (TipoLogradouro)cliente.Enderecos.FirstOrDefault()?.TipoLogradouro,
-            //    TipoResidencia = (TipoResidencia)cliente.Enderecos.FirstOrDefault()?.TipoResidencia,
-            //    Complemento = cliente.Enderecos.FirstOrDefault()?.Complemento,
-            //    TipoCartao = (TipoCartao)cliente.Cartoes.FirstOrDefault()?.TipoCartao,
-            //    NumeroCartao = cliente.Cartoes.FirstOrDefault()?.NumeroCartao,
-            //    TitularDoCartao = cliente.Cartoes.FirstOrDefault()?.TitularDoCartao,
-            //    CpfTitularCartao = cliente.Cartoes.FirstOrDefault()?.CpfTitularCartao,
-            //    DataValidade = (DateTime)(cliente.Cartoes.FirstOrDefault()?.DataValidade),
-            //    CVV = cliente.Cartoes.FirstOrDefault()?.CVV,
-            //};
             return _convertService.ConverterParaClienteViewModel(cliente);
-            
         }
 
         //método para editar cliente obetendo cliente por id e recebendo dados do banco, convertendo objeto cliente para objeto clienteviewmodel
@@ -239,6 +207,63 @@ namespace SwitchSelect.Service
             }
         }
 
+        public async Task<bool> EditarClienteDadosPessoais(int id, ClienteDadosPessoaisViewModel model)
+        {
+            var cliente = await _context.Clientes
+               .Include(c => c.Telefones)
+               .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (cliente is null)
+            {
+                return false;
+            }
+
+            //atualiza dados de cliente
+            cliente.Nome = model.Nome;
+            cliente.DataDeNascimento = model.DataDeNascimento;
+            cliente.Email = model.Email;
+            cliente.Genero = model.Genero;
+            cliente.Cpf = model.Cpf;
+            cliente.RG = model.RG;
+
+            //Telefones           
+            var telefone = cliente.Telefones.FirstOrDefault();
+            if (telefone != null)
+            {
+                telefone.NumeroTelefone = model.NumeroTelefone;
+                telefone.TipoTelefone = model.TipoTelefone;
+                telefone.DDD = model.DDD;
+                telefone.Cliente = cliente;
+            }
+            else
+            {
+                // Adiciona um novo telefone
+                cliente.Telefones.Add(new Telefone
+                {
+                    NumeroTelefone = model.NumeroTelefone,
+                    DDD = model.DDD,
+                    TipoTelefone = model.TipoTelefone
+                });
+            }
+
+            try
+            {
+                _context.Update(cliente);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                Console.WriteLine($"Erro de concorrência ao atualizar cliente: {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao atualizar cliente: {ex.Message}");
+                return false;
+            }
+        }
+
 
         private bool ClienteExists(int id)
         {
@@ -282,7 +307,15 @@ namespace SwitchSelect.Service
             await _context.SaveChangesAsync();
         }
 
-
+        public ClienteDadosPessoaisViewModel ObterClientePorIdDadosPessoais(int id)
+        {
+            var cliente = _cliRepositorio.GetPorId(id);
+            if (cliente == null)
+            {
+                return null;
+            }
+            return _convertService.ConverterParaClienteDadosPessoaisViewModel(cliente);
+        }
 
     }
 }

@@ -51,5 +51,7 @@
     </dd>
     
 </div>
-<a asp-controller="Cliente" asp-action="Edit" asp-route-id="@Model?.Id" asp-route-origem="editarCliente" class="btn btn-primary">Editar</a>
+<a asp-controller="Cliente" asp-action="EditDadosPessoais" asp-route-id="@Model?.Id"  class="btn btn-primary">Editar</a>
 <a asp-action="Delete" asp-route-id="@Model.Id" class="col-sm-2 btn btn-danger ">Excluir minha conta</a>
+<br />
+<a asp-action="AreaCliente" asp-route-id="@Model.Id">Voltar</a>

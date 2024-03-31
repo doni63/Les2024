@@ -35,21 +35,9 @@ namespace SwitchSelect.Controllers
             return View();
         }
 
-        
-        //public async Task<IActionResult> PesquisarPorCpf(string cpf)
-        //{
-        //    if(string.IsNullOrEmpty(cpf)) return NotFound();
-
-        //    var cliente = await _clienteService.BuscarPorCpf(cpf);
-
-        //    if(cliente == null) return NotFound();
-           
-        //    return RedirectToAction("AreaCliente", new { id = cliente.Id });
-        //}
-
-        public async Task<IActionResult> AreaCliente(int id)
+        public IActionResult AreaCliente(int id)
         {
-            var cliente = await _clienteService.ObterClientePorIdAsync(id);
+            var cliente = _clienteService.ObterClientePorId(id);
             //var usuario = HttpContext.Session.GetString("usuario");
             if (cliente == null)
             {
@@ -58,9 +46,9 @@ namespace SwitchSelect.Controllers
             return View(cliente);
         }
 
-        public async Task<IActionResult> DadosPessoais(int id)
+        public IActionResult DadosPessoais(int id)
         {
-            var cliente = await _clienteService.ObterClientePorIdAsync(id);
+            var cliente = _clienteService.ObterClientePorId(id);
             if (cliente == null) return NotFound();
             return View(cliente);
         }
@@ -75,14 +63,14 @@ namespace SwitchSelect.Controllers
         public async Task<IActionResult> Create([FromForm] ClienteCompletoViewModel model)
         {
             if (ModelState.IsValid)
-            {                      
+            {
                 await _clienteService.CriarClienteAsync(model);
-                return RedirectToAction("Index","home");
+                return RedirectToAction("Index", "home");
             }
             return View(model);
         }
 
-        public async Task<IActionResult> Edit(int? id, string origem)
+        public IActionResult Edit(int? id, string origem)
         {
             ViewBag.Origem = origem;
             if (id == null)
@@ -90,7 +78,7 @@ namespace SwitchSelect.Controllers
                 return NotFound();
             }
 
-            var clienteViewModel = await _clienteService.ObterClientePorIdAsync(id.Value);
+            var clienteViewModel = _clienteService.ObterClientePorId(id.Value);
             if (clienteViewModel == null)
             {
                 return NotFound();
@@ -101,7 +89,7 @@ namespace SwitchSelect.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [FromForm] ClienteCompletoViewModel clienteViewModel, string origem)
+        public async Task<IActionResult> Edit(int id, [FromForm] ClienteCompletoViewModel clienteViewModel)
         {
 
             if (id != clienteViewModel.Id)
@@ -115,17 +103,7 @@ namespace SwitchSelect.Controllers
                 var sucesso = await _clienteService.EditarClienteAsync(id, clienteViewModel);
                 if (sucesso)
                 {
-                    if(origem== "editarCliente")
-                    {
-                        
-                        return RedirectToAction("AreaCliente", "Cliente", new { id = id });
-                    }
-                    else if(origem== "adminInfo")
-                    {
-                        
-                        return RedirectToAction("AdminListaCliente", "Admin");
-                    }
-                   
+                    return RedirectToAction("AdminListaCliente", "Admin");
                 }
                 else
                 {
@@ -134,6 +112,41 @@ namespace SwitchSelect.Controllers
             }
             return View(clienteViewModel);
         }
+
+        public IActionResult EditDadosPessoais(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var clienteViewModel = _clienteService.ObterClientePorIdDadosPessoais(id.Value);
+            if (clienteViewModel == null)
+            {
+                return NotFound();
+            }
+
+            return View(clienteViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditDadosPessoais(int id, [FromForm] ClienteDadosPessoaisViewModel clienteDadosPessoais)
+        {
+            if (id != clienteDadosPessoais.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var sucesso = await _clienteService.EditarClienteDadosPessoais(id, clienteDadosPessoais);
+                if (sucesso)
+                {
+                    return RedirectToAction("DadosPessoais", "Cliente", new { id = id });
+                }
+            }
+            return View(clienteDadosPessoais);
+        }
+
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -166,12 +179,7 @@ namespace SwitchSelect.Controllers
             return RedirectToAction("ListaCliente", "Cliente");
         }
 
-        //public async Task<IActionResult> EditDadosPessoais(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //}
+
+
     }
 }
