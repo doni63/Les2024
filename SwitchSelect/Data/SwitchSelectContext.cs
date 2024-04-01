@@ -31,6 +31,8 @@ public DbSet<ClienteCompletoViewModel> ClienteViewModels { get; set; } = default
 public DbSet<EnderecoViewModel> EnderecoViewModel { get; set; } = default!;
 
 public DbSet<ClienteDadosPessoaisViewModel> ClienteDadosPessoaisViewModel { get; set; } = default!;
+
+public DbSet<SwitchSelect.Models.ViewModels.CartaoViewModel> CartaoViewModel { get; set; } = default!;
     
 
     

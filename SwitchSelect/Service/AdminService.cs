@@ -9,28 +9,18 @@ namespace SwitchSelect.Service
     public class AdminService
     {
         private readonly SwitchSelectContext _context;
-        
+        private readonly CartaoService _cartaoService;
 
-        public AdminService(SwitchSelectContext context)
+        public AdminService(SwitchSelectContext context, CartaoService cartaoService)
         {
             _context = context;
+            _cartaoService = cartaoService;
         }
 
         public List<Cliente> AdminListarClientes()
         {
             return _context.Clientes.ToList();
         }
-
-        public string FormatarUltimosQuatroDigitos(string numeroCartao)
-        {
-            if (numeroCartao.Length > 4)
-            {
-                string ultimosQuatro = numeroCartao.Substring(numeroCartao.Length - 4);
-                return "**** **** **** " + ultimosQuatro;
-            }
-            return numeroCartao; // Retorna o número original se tiver menos de 4 dígitos (caso raro/não esperado)
-        }
-
 
         public async Task<Cliente> AdminGetCliente(int id)
         {
@@ -50,7 +40,7 @@ namespace SwitchSelect.Service
             foreach(var cartao in cliente.Cartoes)
             {
                var numeroCartao = cartao.NumeroCartao;
-               cartao.CartaoQuatroDigito = FormatarUltimosQuatroDigitos(numeroCartao);
+               cartao.CartaoQuatroDigito = _cartaoService.FormatarUltimosQuatroDigitos(numeroCartao);
             }
 
             return cliente;

@@ -1,6 +1,6 @@
 ﻿@model SwitchSelect.Models.ViewModels.ClienteCompletoViewModel
 
-<h2>Area do cliente</h2>
+<h2>Área do cliente</h2>
 
 <div>
     <dl class="row">
@@ -17,11 +17,11 @@
     <div class="align-items-start">
         <a asp-controller="Pedido" asp-action="PedidoList" class="btn btn-primary">Pedidos</a>
         <a asp-controller="Cupom" asp-action="CupomList" class="btn btn-primary">Meus cupons</a>
-        <a class="btn btn-primary">Metodo de pagamento</a>
+        <a asp-controller="Cartao" asp-action="CartaoList" asp-route-ClienteId="@Model.Id" class="btn btn-primary">Metodo de pagamento</a>
         <a asp-controller="Cliente" asp-action="DadosPessoais" asp-route-id="@Model.Id" class="btn btn-primary">Dados pessoais</a>
         <a asp-controller="Endereco" asp-action="EnderecoList" asp-route-ClienteId="@Model.Id" class="btn btn-primary">Endereço</a>
         
     </div>
     <br />
-    <a asp-controller="Login" asp-action="TelaLogin" class="btn btn-link">Voltar</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-link">Voltar</a>
 </div>

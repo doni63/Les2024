@@ -12,7 +12,7 @@ public class EnderecoService
     private readonly IEnderecoRepositorio _endRepositorio;
    
 
-    public EnderecoService(SwitchSelectContext context, IEnderecoRepositorio endRepositorio, ConvertService convertService)
+    public EnderecoService(SwitchSelectContext context, IEnderecoRepositorio endRepositorio)
     {
         _context = context;
         _endRepositorio = endRepositorio;

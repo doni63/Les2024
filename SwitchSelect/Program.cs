@@ -26,12 +26,13 @@ builder.Services.AddSession(options =>
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<AdminService>();
 builder.Services.AddScoped<CarrinhoService>();
-builder.Services.AddScoped<ConvertService>();
 builder.Services.AddScoped<EnderecoService>();
+builder.Services.AddScoped<CartaoService>();
 builder.Services.AddTransient<IJogoRepositorio, JogoRepositorio>();
 builder.Services.AddTransient<ICategoriaRepositorio, CategoriaRepositorio>();
 builder.Services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
 builder.Services.AddTransient<IEnderecoRepositorio, EnderecoRepositorio>();
+builder.Services.AddTransient<ICartaoRepositorio, CartaoRepositorio>();
 builder.Services.AddScoped(c => CarrinhoCompra.GetCarrinho(c));
 builder.Services.AddSession();
 builder.Services.AddMemoryCache(); //habilitando memoria cache
