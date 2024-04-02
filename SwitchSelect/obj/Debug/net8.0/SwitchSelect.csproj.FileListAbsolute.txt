@@ -6,6 +6,7 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\b
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\SwitchSelect.runtimeconfig.json
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\SwitchSelect.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\SwitchSelect.pdb
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\AutoMapper.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Google.Protobuf.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Humanizer.dll
@@ -254,4 +255,3 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\o
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.pdb
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\SwitchSelect.genruntimeconfig.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\obj\Debug\net8.0\ref\SwitchSelect.dll
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\AutoMapper.dll

@@ -28,5 +28,20 @@ public class CartaoService
         return numeroCartao; // Retorna o número original se tiver menos de 4 dígitos (caso raro/não esperado)
     }
 
-     
+    public async Task CriarCartaoAsync(CartaoViewModel model)
+    {
+        var cartao = new Cartao
+        {
+            Id = model.Id,
+            ClienteId = model.ClienteId,
+            NumeroCartao = model.NumeroCartao,
+            CpfTitularCartao = model.CpfTitularCartao,
+            TitularDoCartao = model.TitularDoCartao,
+            DataValidade = new DateTime(model.AnoValidade, model.MesValidade, DateTime.DaysInMonth(model.AnoValidade, model.MesValidade)),
+            CVV = model.CVV,
+            TipoCartao = model.TipoCartao,
+        };
+        _context.Cartoes.Add(cartao);
+        await _context.SaveChangesAsync();
+    }
 }

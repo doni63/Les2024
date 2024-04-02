@@ -17,6 +17,25 @@ namespace SwitchSelect.Controllers
             _cartaoRepositorio = cartaoRepositorio;
         }
 
+        public IActionResult Create(int clienteId)
+        {
+            var viewModel = new CartaoViewModel
+            {
+                ClienteId = clienteId
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CartaoViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await _cartaoService.CriarCartaoAsync(model);
+            return RedirectToAction(nameof(CartaoList), new { clienteId = model.ClienteId });
+        }
         public IActionResult CartaoList(int clienteId)
         {
             var cartoes = _cartaoRepositorio.ObterCartaoPorCliente(clienteId);

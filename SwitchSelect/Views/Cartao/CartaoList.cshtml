@@ -31,5 +31,5 @@ else
     <p>Nenhum cartão cadastrado.</p>
 }
 
-<a asp-action="Create" class="btn btn-primary">+ Cartão</a>
+<a asp-action="Create" asp-route-clienteId="@ViewData["ClienteID"]" class="btn btn-primary">+ Cartão</a>
 <a asp-controller="Cliente" asp-action="AreaCliente" asp-route-id="@ViewData["ClienteID"]" class="btn btn-link">Voltar</a>
