@@ -18,6 +18,12 @@ namespace SwitchSelect.Controllers
             _jogoRepositorio = jogoRepositorio;
         }
 
+        public IActionResult Error(string? message)
+        {
+            ViewData["ErrorMessage"] = message;
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();

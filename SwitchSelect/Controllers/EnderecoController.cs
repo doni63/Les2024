@@ -77,6 +77,7 @@ public class EnderecoController : Controller
             Id = endereco.Id,
             Logradouro = endereco.Logradouro,
             Numero = endereco.Numero
+            
         };
         return View(viewModel);
     }

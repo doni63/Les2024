@@ -69,6 +69,15 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\b
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\NuGet.Protocol.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\NuGet.Versioning.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\Serilog.Sinks.File.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\System.CodeDom.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\SwitchSelect\bin\Debug\net8.0\System.Composition.Convention.dll

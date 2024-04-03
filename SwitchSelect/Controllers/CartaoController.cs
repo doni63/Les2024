@@ -67,6 +67,82 @@ namespace SwitchSelect.Controllers
             return View(cartoesViewModel);
         }
 
-      
+        public IActionResult Edit(int? id, int clienteId)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var cartaoViewModel = _cartaoService.ObterCartaoPorId(id.Value);
+            cartaoViewModel.ClienteId = clienteId;
+            if(cartaoViewModel is null)
+            {
+                return NotFound();
+            }
+            return View(cartaoViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [FromForm] CartaoViewModel cartaoViewModel)
+        {
+            try
+            {
+                if (id != cartaoViewModel.Id)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    var sucesso = await _cartaoService.EditCartao(id, cartaoViewModel);
+                    if (sucesso)
+                    {
+                        var clienteId = cartaoViewModel.ClienteId;
+                        return RedirectToAction("CartaoList", new { clienteId = clienteId });
+                    }
+                    else
+                    {
+                        // Retornar uma view de erro personalizada com uma mensagem específica
+                        
+                        return View("Error");
+                    }
+                }
+                return View(cartaoViewModel);
+            }
+            catch (Exception ex)
+            {
+                // Logue a exceção para registrar detalhes
+                Console.WriteLine(ex);
+                ViewData["ErrorMessage"] = ex;
+                // Passe a mensagem de exceção como modelo para a view de erro
+                return RedirectToAction("Error", new { message = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return NotFound();
+            }
+
+
+            var cartao = _cartaoRepositorio.Cartoes.FirstOrDefault(c => c.Id == id);
+
+            if(cartao == null)
+            {
+                return NotFound();
+            }
+            var numeroCartao = cartao.NumeroCartao;
+            var cartaoViewModel = new CartaoViewModel
+            {
+                Id = cartao.Id,
+                ClienteId = cartao.ClienteId,
+                CartaoQuatroDigito = _cartaoService.FormatarUltimosQuatroDigitos(numeroCartao),
+            };
+            return View(cartaoViewModel);
+        }
+
     }
 }

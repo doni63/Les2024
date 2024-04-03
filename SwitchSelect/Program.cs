@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using SwitchSelect.Data;
 using SwitchSelect.Models.Carrinho;
 using SwitchSelect.Repositorios;

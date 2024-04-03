@@ -12,13 +12,12 @@ public class CartaoRepositorio : ICartaoRepositorio
     {
         _context = context;
     }
-    public IEnumerable<Cartao> Cartoes => _context.Cartoes
-        .Include(c => c.TipoCartao);
+    public IEnumerable<Cartao> Cartoes => _context.Cartoes;
+        
 
     public Cartao? GetCartaoPorId(int cartaoId)
     {
         return _context.Cartoes
-            .Include(c => c.TipoCartao)
             .FirstOrDefault(c => c.Id == cartaoId);
     }
 
