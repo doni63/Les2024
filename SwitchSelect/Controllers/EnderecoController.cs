@@ -62,7 +62,7 @@ public class EnderecoController : Controller
     }
 
     [HttpGet]
-    public IActionResult Delete(int? id)
+    public IActionResult Delete(int? id, int clienteId)
     {
         if(id == null)
         {
@@ -75,18 +75,20 @@ public class EnderecoController : Controller
         var viewModel = new EnderecoViewModel
         {
             Id = endereco.Id,
+            ClienteID = clienteId,
             Logradouro = endereco.Logradouro,
             Numero = endereco.Numero
             
         };
         return View(viewModel);
     }
+
     [HttpPost, ActionName("Delete")]
-    public async Task<IActionResult> DeleteConfirmedAsync(int id)
+    public async Task<IActionResult> DeleteConfirmedAsync(int id, int clienteId)
     {
        await _enderecoService.DeleteEndereco(id);
         // Redireciona para a lista de endereços do cliente, passando o clienteId
-        return RedirectToAction(nameof(EnderecoList), new { clienteId = id });
+        return RedirectToAction(nameof(EnderecoList), new { clienteId = clienteId });
     }
 
     public IActionResult Edit(int? id, int clienteId)

@@ -106,4 +106,16 @@ public class CartaoService
         }
        
     }
+
+    internal async Task DeleteCartao(int id)
+    {
+        var cartao = _cartaoRepositorio.GetCartaoPorId(id);
+        if(cartao == null)
+        {
+            throw new Exception("Cartão não encontrado");
+        }
+
+        _context.Cartoes.Remove(cartao);
+        await _context.SaveChangesAsync();
+    }
 }

@@ -119,7 +119,7 @@ public class EnderecoService
         var endereco = _endRepositorio.GetEnderecoPorId(enderecoId);
         if(endereco is null)
         {
-            throw new Exception("Endereco não encontrado"); ;
+            throw new Exception("Endereco não encontrado"); 
         }
 
         _context.Enderecos.Remove(endereco);

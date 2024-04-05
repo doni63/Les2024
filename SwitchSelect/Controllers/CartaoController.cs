@@ -120,7 +120,7 @@ namespace SwitchSelect.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int? id, int clienteId)
         {
             if (!id.HasValue)
             {
@@ -138,10 +138,17 @@ namespace SwitchSelect.Controllers
             var cartaoViewModel = new CartaoViewModel
             {
                 Id = cartao.Id,
-                ClienteId = cartao.ClienteId,
+                ClienteId = clienteId,
                 CartaoQuatroDigito = _cartaoService.FormatarUltimosQuatroDigitos(numeroCartao),
             };
             return View(cartaoViewModel);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmacao(int id, int clienteId)
+        {
+            await _cartaoService.DeleteCartao(id);
+            return RedirectToAction(nameof(CartaoList), new { clienteId = clienteId });
         }
 
     }

@@ -10,6 +10,7 @@
 
 <form asp-action="Delete" method="post">
     <input type="hidden" name="id" value="@Model.Id" />
+    <input type="hidden" name="clienteId" value="@Model.ClienteID" />
     <button type="submit" class="btn btn-danger">Deletar</button>
     <button type="button" onclick="history.back();" class="btn btn-default">Cancelar</button>
 

@@ -14,13 +14,14 @@
             <div class="list-group-item flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">@cartao.TipoCartao</h5>
+                    <p>ClienteId: @cartao.ClienteId</p>
                     <small>@cartao.TitularDoCartao</small>
                 </div>
                 <p class="mb-1">@cartao.CartaoQuatroDigito <br />(Validade: @cartao.DataValidade)</p>
                 
                 <div class="mt-2">
                     <a asp-action="Edit" asp-route-id="@cartao.Id" asp-route-clienteId="@cartao.ClienteId" class="btn btn-sm btn-secondary">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@cartao.Id" class="btn btn-sm btn-danger">Deletar</a>
+                    <a asp-action="Delete" asp-route-id="@cartao.Id" asp-route-clienteId="@cartao.ClienteId" class="btn btn-sm btn-danger">Deletar</a>
                 </div>
             </div>
         }

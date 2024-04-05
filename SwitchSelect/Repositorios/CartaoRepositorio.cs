@@ -24,7 +24,7 @@ public class CartaoRepositorio : ICartaoRepositorio
     public IEnumerable<Cartao> ObterCartaoPorCliente(int clienteId)
     {
         return _context.Cartoes
-            .Where(c => c.ClienteId == clienteId)
-            .ToList();
+            .Where(c => c.ClienteId == clienteId).ToList();
+            
     }
 }
