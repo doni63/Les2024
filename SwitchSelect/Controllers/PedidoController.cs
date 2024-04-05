@@ -21,6 +21,21 @@ namespace SwitchSelect.Controllers
             return View();
         }
 
+        public IActionResult StatusTroca()
+        {
+            return View();
+        }
+
+        public IActionResult DevolucaoPedido()
+        {
+            return View();
+        }
+
+        public IActionResult StatusDevolucao()
+        {
+            return View();
+        }
+
         public IActionResult PedidoList()
         {
             return View();

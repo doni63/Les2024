@@ -5,13 +5,13 @@ using Xunit;
 
 namespace TesteSwitchSelect
 {
-    public class SuiteTests : IDisposable
+    public class SuiteTelaCompraTests : IDisposable
     {
         public IWebDriver driver { get; private set; }
         public IDictionary<string, object> vars { get; private set; }
         public IJavaScriptExecutor js { get; private set; }
 
-        public SuiteTests()
+        public SuiteTelaCompraTests()
         {
             driver = new EdgeDriver();
             js = (IJavaScriptExecutor)driver;
@@ -24,7 +24,7 @@ namespace TesteSwitchSelect
         }
 
         [Fact]
-        public void TelasDeCompra()
+        public void TelasDeCompraTeste()
         {
             driver.Navigate().GoToUrl("https://localhost:44308/");
             driver.Manage().Window.Size = new System.Drawing.Size(1382, 736);

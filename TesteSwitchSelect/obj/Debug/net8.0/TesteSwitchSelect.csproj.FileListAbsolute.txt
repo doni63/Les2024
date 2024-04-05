@@ -1,5 +1,8 @@
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\testhost.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\testhost.exe
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll
@@ -17,6 +20,8 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSel
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\NuGet.Frameworks.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\WebDriver.Support.dll
+D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\WebDriver.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\xunit.abstractions.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\xunit.assert.dll
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\xunit.core.dll
@@ -98,8 +103,3 @@ D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSel
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\obj\Debug\net8.0\TesteSwitchSelect.pdb
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\obj\Debug\net8.0\TesteSwitchSelect.genruntimeconfig.cache
 D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\obj\Debug\net8.0\ref\TesteSwitchSelect.dll
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\WebDriver.dll
-D:\ProgramacaoCsharp\MinhasAplicacoes\projetoLes2024\SwitchSelect\TesteSwitchSelect\bin\Debug\net8.0\WebDriver.Support.dll
