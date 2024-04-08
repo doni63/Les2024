@@ -65,7 +65,7 @@ namespace SwitchSelect.Controllers
             if (ModelState.IsValid)
             {
                 await _clienteService.CriarClienteAsync(model);
-                return RedirectToAction("Index", "home");
+                return RedirectToAction("Index", "Home");
             }
             return View(model);
         }
@@ -176,7 +176,7 @@ namespace SwitchSelect.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _clienteService.DeleteClienteAsync(id);
-            return RedirectToAction("ListaCliente", "Cliente");
+            return RedirectToAction("Index", "Home");
         }
 
 

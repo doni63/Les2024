@@ -50,9 +50,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Docker.DotNet": {
+              "target": "Package",
+              "version": "[3.125.15, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.8.0, )"
+              "version": "[17.9.0, )"
             },
             "Selenium.Support": {
               "target": "Package",
@@ -62,17 +66,25 @@
               "target": "Package",
               "version": "[4.19.0, )"
             },
-            "coverlet.collector": {
+            "Selenium.WebDriver.MSEdgeDriver": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[123.0.2420.65, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.2, )"
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.5.3, )"
+              "version": "[2.7.0, )"
             },
             "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.5.3, )"
+              "version": "[2.5.7, )"
             }
           },
           "imports": [

@@ -76,6 +76,7 @@ public class EnderecoService
         endereco.Logradouro = model.Logradouro;
         endereco.Numero = model.Numero;
         endereco.CEP = model.CEP;
+        endereco.Complemento = model.Complemento;
 
         var bairro = endereco.Bairro;
         if(bairro != null)

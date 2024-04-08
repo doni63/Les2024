@@ -8,7 +8,7 @@
 
 <p>Tem certeza de que deseja deletar o endereço "@Model.Logradouro, Número @Model.Numero"?</p>
 
-<form asp-action="Delete" method="post">
+<form asp-action="Delete" method="post" id="formDeletarEndereco">
     <input type="hidden" name="id" value="@Model.Id" />
     <input type="hidden" name="clienteId" value="@Model.ClienteID" />
     <button type="submit" class="btn btn-danger">Deletar</button>

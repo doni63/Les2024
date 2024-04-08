@@ -71,7 +71,7 @@
                         <input asp-for="NumeroTelefone" class="form-control" />
                         <span asp-validation-for="NumeroTelefone" class="text-danger"></span>
                     </div>
-                <button id="btnDadosPessoais" class="btn btn-primary">Ir para Endereço</button>
+                <button id="btnDadosPessoais" name="endereco" class="btn btn-primary">Ir para Endereço</button>
                 </div>
                 <br />
 
@@ -198,14 +198,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                    <input type="submit" value="Salvar" id="salvar" class="btn btn-primary" />
                 </div>
             </form>
         </div>
     </div>
 
     <div>
-        <a asp-action="Index">Voltar</a>
+    <a id="btnVoltar" href="#">Voltar</a>
     </div>
 
     @section Scripts {
@@ -231,6 +231,49 @@
 
                 // Se necessário, adicione lógica para o botão voltar
             });
+
+
+        $(document).ready(function () {
+            // Armazena o estado atual da seção
+            var estadoAtual = "dadosPessoais";
+
+            // Mostra a seção de acordo com o estado atual
+            function mostrarSecao() {
+                if (estadoAtual === "dadosPessoais") {
+                    $("#secaoDadosPessoais").show();
+                    $("#secaoEndereco").hide();
+                    $("#secaoCartao").hide();
+                } else if (estadoAtual === "endereco") {
+                    $("#secaoDadosPessoais").hide();
+                    $("#secaoEndereco").show();
+                    $("#secaoCartao").hide();
+                } else if (estadoAtual === "cartao") {
+                    $("#secaoDadosPessoais").hide();
+                    $("#secaoEndereco").hide();
+                    $("#secaoCartao").show();
+                }
+            }
+
+            // Quando clicar no botão voltar
+            $("#btnVoltar").click(function (e) {
+                e.preventDefault(); // Impede o comportamento padrão de navegação
+
+                // Define o novo estado com base no estado atual
+                if (estadoAtual === "endereco") {
+                    estadoAtual = "dadosPessoais";
+                } else if (estadoAtual === "cartao") {
+                    estadoAtual = "endereco";
+                }
+
+                // Mostra a seção correspondente ao novo estado
+                mostrarSecao();
+            });
+
+            // Lógica para os outros botões de navegação (ir para endereço, ir para cartão)
+
+            // Inicialmente, mostra a seção de dados pessoais
+            mostrarSecao();
+        });
 
 
     </script>

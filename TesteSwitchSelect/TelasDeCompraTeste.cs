@@ -38,5 +38,37 @@ namespace TesteSwitchSelect
             driver.FindElement(By.LinkText("Continuar Comprando")).Click();
             driver.Close();
         }
+
+        [Fact]
+        public void TelasTroca()
+        {
+            driver.Navigate().GoToUrl("https://localhost:44308/");
+            driver.Manage().Window.Size = new System.Drawing.Size(1382, 736);
+            driver.FindElement(By.CssSelector(".bi-person")).Click();
+            driver.FindElement(By.Id("Cpf")).Click();
+            driver.FindElement(By.Id("Cpf")).SendKeys("11111111111");
+            driver.FindElement(By.CssSelector("button:nth-child(4)")).Click();
+            driver.FindElement(By.LinkText("Pedidos")).Click();
+            driver.FindElement(By.LinkText("Trocar")).Click();
+            driver.FindElement(By.LinkText("Status de troca")).Click();
+            driver.FindElement(By.LinkText("Continuar navegando")).Click();
+            driver.Close();
+        }
+
+        [Fact]
+        public void TelasDevolucao()
+        {
+            driver.Navigate().GoToUrl("https://localhost:44308/");
+            driver.Manage().Window.Size = new System.Drawing.Size(1382, 736);
+            driver.FindElement(By.CssSelector(".bi-person")).Click();
+            driver.FindElement(By.Id("Cpf")).Click();
+            driver.FindElement(By.Id("Cpf")).SendKeys("1111111111");
+            driver.FindElement(By.CssSelector("button:nth-child(4)")).Click();
+            driver.FindElement(By.LinkText("Pedidos")).Click();
+            driver.FindElement(By.LinkText("Devolver")).Click();
+            driver.FindElement(By.LinkText("Status de devolução")).Click();
+            driver.FindElement(By.LinkText("Continuar navegando")).Click();
+            driver.Close();
+        }
     }
 }
