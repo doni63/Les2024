@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SwitchSelect.Models;
 using SwitchSelect.Models.ViewModels;
 using SwitchSelect.Repositorios.Interfaces;
 
@@ -13,11 +14,37 @@ namespace SwitchSelect.Controllers
             _jogoRepositorio = jogoRepositorio;
         }
 
-       public IActionResult JogoList()
+        public IActionResult JogoList(string categoria) 
         {
-            var jogoListViewModel = new JogoListViewModel();
-            jogoListViewModel.Jogos = _jogoRepositorio.Jogos;
-          
+            IEnumerable<Jogo> jogos;
+            string categoriaAtual = string.Empty;
+
+            if(string.IsNullOrEmpty(categoria))
+            {
+                jogos = _jogoRepositorio.Jogos.OrderBy(j =>  j.Id);
+                categoriaAtual = "Todos os Jogos";
+            }
+            else
+            {
+                if(string.Equals("Aventura", categoria, StringComparison.OrdinalIgnoreCase))
+                {
+                    jogos = _jogoRepositorio.Jogos
+                        .Where(j => j.Categoria.Nome.Equals("Aventura"))
+                        .OrderBy(j => j.Nome);
+                }
+                else
+                {
+                    jogos = _jogoRepositorio.Jogos
+                             .Where(j => j.Categoria.Nome.Equals("Luta"))
+                             .OrderBy(j => j.Nome);
+                }
+                categoriaAtual = categoria;
+            }
+            var jogoListViewModel = new JogoListViewModel
+            {
+                Jogos = jogos,
+                CategoriaAtual = categoriaAtual
+            };
             return View(jogoListViewModel);
         }
 
@@ -28,7 +55,7 @@ namespace SwitchSelect.Controllers
 
             return View(jogosPreferidos);
         }
-       
+
         public IActionResult JogoSelecionado()
         {
             return View();

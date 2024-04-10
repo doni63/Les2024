@@ -49,6 +49,14 @@
       "PackagePath": "staticwebassets\\imagens\\Doom-600x-484x484.jpg"
     },
     {
+      "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\Envelope-icon24.png",
+      "PackagePath": "staticwebassets\\imagens\\Envelope-icon24.png"
+    },
+    {
+      "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\Home-iconred.png",
+      "PackagePath": "staticwebassets\\imagens\\Home-iconred.png"
+    },
+    {
       "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\acr-png-2-484x484.png",
       "PackagePath": "staticwebassets\\imagens\\acr-png-2-484x484.png"
     },
@@ -97,6 +105,10 @@
       "PackagePath": "staticwebassets\\imagens\\engage-box-484x484.png"
     },
     {
+      "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\faleconosco1.jpg",
+      "PackagePath": "staticwebassets\\imagens\\faleconosco1.jpg"
+    },
+    {
       "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\hogwart-legacy-484x484.png",
       "PackagePath": "staticwebassets\\imagens\\hogwart-legacy-484x484.png"
     },
@@ -119,6 +131,10 @@
     {
       "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\mariogolf-484x484.png",
       "PackagePath": "staticwebassets\\imagens\\mariogolf-484x484.png"
+    },
+    {
+      "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\phone-app-icon.png",
+      "PackagePath": "staticwebassets\\imagens\\phone-app-icon.png"
     },
     {
       "Id": "D:\\ProgramacaoCsharp\\MinhasAplicacoes\\projetoLes2024\\SwitchSelect\\SwitchSelect\\wwwroot\\imagens\\pikachu-capa-484x484.jpg",

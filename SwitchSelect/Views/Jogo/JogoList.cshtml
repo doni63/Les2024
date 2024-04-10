@@ -1,0 +1,13 @@
+﻿@model SwitchSelect.Models.ViewModels.JogoListViewModel;
+
+<h2>Os melhores jogos para Nitendo Switch</h2>
+
+
+<div class="container">
+    <div class="row text-center">
+        @foreach (var jogo in Model.Jogos)
+        {
+            <partial name="_jogoResumo" for="@jogo" />
+        }
+    </div>
+</div>

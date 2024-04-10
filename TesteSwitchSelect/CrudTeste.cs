@@ -62,6 +62,7 @@ namespace TesteSwitchSelect
 
             // Clicar no botão 'Ir para Cartão'
             driver.FindElement(By.Id("btnEndereco")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             // Preencher dados do cartão
             driver.FindElement(By.Id("TitularDoCartao")).SendKeys("Roberto");
@@ -118,11 +119,8 @@ namespace TesteSwitchSelect
             driver.FindElement(By.Id("Bairro")).SendKeys("Piatã");
             driver.FindElement(By.Id("Cidade")).SendKeys("Mogi das Cruzes");
             driver.FindElement(By.Id("Estado")).SendKeys("São Paulo");
-
           //submit novoEndereco
-
             IWebElement novoEndereco = driver.FindElement(By.Id("formCreateNovoEndereco"));
-
             // Envie o formulário
             novoEndereco.Submit();
         }
@@ -157,11 +155,9 @@ namespace TesteSwitchSelect
             driver.FindElement(By.Id("login")).Click();
             driver.FindElement(By.Id("endereco")).Click();
             driver.FindElement(By.LinkText("Editar")).Click();
-
             IWebElement campoNumero = driver.FindElement(By.Id("Numero"));
             campoNumero.Clear();
             campoNumero.SendKeys("360");
-
             IWebElement campoComplemento = driver.FindElement(By.Id("Complemento"));
             campoComplemento.Clear();
             campoComplemento.SendKeys("casa B");
@@ -220,6 +216,23 @@ namespace TesteSwitchSelect
 
             // Envie o formulário
             deletarCartao.Submit();
+        }
+        [Fact]
+        public void DeletarCliente()
+        {
+            driver.Navigate().GoToUrl("https://localhost:44308/");
+            driver.Manage().Window.Size = new System.Drawing.Size(1382, 736);
+            driver.FindElement(By.CssSelector(".bi-person")).Click();
+            driver.FindElement(By.Id("Cpf")).SendKeys("12345678987");
+            driver.FindElement(By.Id("login")).Click();
+            driver.FindElement(By.LinkText("Dados pessoais")).Click();
+            driver.FindElement(By.LinkText("Excluir minha conta")).Click();
+
+            //submit deletarEndereco
+            IWebElement deletarCliente = driver.FindElement(By.Id("formDeletarCliente"));
+
+            // Envie o formulário
+            deletarCliente.Submit();
         }
     }
 }

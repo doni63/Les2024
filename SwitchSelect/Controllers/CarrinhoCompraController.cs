@@ -19,6 +19,7 @@ namespace SwitchSelect.Controllers
         public IActionResult Index()
         {
             var itens = _carrinhoCompra.GetCarrinhosCompraItens();
+            _carrinhoCompra.CarrinhosCompraItens = itens;
 
             var carrinhoComprasVM = new CarrinhoCompraViewModel
             {

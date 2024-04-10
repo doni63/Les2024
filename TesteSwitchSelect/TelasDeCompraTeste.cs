@@ -60,9 +60,10 @@ namespace TesteSwitchSelect
         {
             driver.Navigate().GoToUrl("https://localhost:44308/");
             driver.Manage().Window.Size = new System.Drawing.Size(1382, 736);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.FindElement(By.CssSelector(".bi-person")).Click();
             driver.FindElement(By.Id("Cpf")).Click();
-            driver.FindElement(By.Id("Cpf")).SendKeys("1111111111");
+            driver.FindElement(By.Id("Cpf")).SendKeys("11111111111");
             driver.FindElement(By.CssSelector("button:nth-child(4)")).Click();
             driver.FindElement(By.LinkText("Pedidos")).Click();
             driver.FindElement(By.LinkText("Devolver")).Click();

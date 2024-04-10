@@ -63,11 +63,11 @@
                                 <i class="bi bi-heart fs-3"></i>
                             </a>
                         </li>
-
+                        <!--Icone carrinho de compra-->
                         <li class="nav-item">
-                            <a class="nav-link header-class-font text-white" asp-controller="CarrinhoDeCompra" asp-action="Carrinho">
-                                <i class="bi bi-cart fs-3"></i>
-                                <span id="cart-count"></span>
+                            <a class="nav-link header-class-font text-white" asp-controller="" asp-action="">
+                                <!--<i class="bi bi-cart fs-3"></i>-->
+                                <span id="cart-count">@await Component.InvokeAsync("CarrinhoCompraResumo")</span>
                             </a>
                         </li>
 
@@ -84,9 +84,12 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - SwitchSelect - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - SwitchSelect -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" style="margin-right:2.5%">Privacy</a>
+            <a asp-controller="Contato" asp-action="Index" > Contato </a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -104,7 +107,7 @@
                 <div class="modal-body">
                     <a asp-controller="Admin" asp-action="TelaAdmin">Área do administrador</a>
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
@@ -112,7 +115,7 @@
         </div>
     </div>
 
-   
+
 
     <!--Contador de produtos-->
     <script>
@@ -120,7 +123,7 @@
         function exibirModalMenu() {
             $('#modalMenu').modal('show');
         }
-    
+
     </script>
 
 </body>
