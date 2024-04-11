@@ -58,8 +58,14 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//rota para JogoList
+app.MapControllerRoute(
+    name: "jogoFiltro",
+    pattern: "Jogo/{action}/{categoria?}",
+    defaults: new {controller = "Jogo", action = "JogoList"}
+    );
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.Run();

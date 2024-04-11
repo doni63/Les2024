@@ -14,30 +14,22 @@ namespace SwitchSelect.Controllers
             _jogoRepositorio = jogoRepositorio;
         }
 
-        public IActionResult JogoList(string categoria) 
+        public IActionResult JogoList(string categoria)
         {
             IEnumerable<Jogo> jogos;
             string categoriaAtual = string.Empty;
 
-            if(string.IsNullOrEmpty(categoria))
+            jogos = _jogoRepositorio.Jogos
+                    .Where(j => j.Categoria.Nome.Equals(categoria))
+                    .OrderBy(j => j.Nome);
+
+            if (jogos.Count() == 0)
             {
-                jogos = _jogoRepositorio.Jogos.OrderBy(j =>  j.Id);
+                jogos = _jogoRepositorio.Jogos.OrderBy(j => j.Id);
                 categoriaAtual = "Todos os Jogos";
             }
             else
             {
-                if(string.Equals("Aventura", categoria, StringComparison.OrdinalIgnoreCase))
-                {
-                    jogos = _jogoRepositorio.Jogos
-                        .Where(j => j.Categoria.Nome.Equals("Aventura"))
-                        .OrderBy(j => j.Nome);
-                }
-                else
-                {
-                    jogos = _jogoRepositorio.Jogos
-                             .Where(j => j.Categoria.Nome.Equals("Luta"))
-                             .OrderBy(j => j.Nome);
-                }
                 categoriaAtual = categoria;
             }
             var jogoListViewModel = new JogoListViewModel
