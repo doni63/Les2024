@@ -1,4 +1,4 @@
-﻿@model SwitchSelect.Models.ViewModels.CarrinhoCompraViewModel;
+﻿@model SwitchSelect.Models.ViewModels.CarrinhoCompraViewModel
 @{
     ViewData["Title"] = "Carrinho de Compra";
 }
@@ -7,8 +7,8 @@
         <table class="table table-bordered table-striped">
             <thead class="">
                 <tr>
-                    <th class="col-sm-2">Imagem</th>
                     <th class="col-sm-2">Produto</th>
+                    <th class="col-sm-2">Nome</th>
                     <th class="col-sm-2">Quantidade</th>
                     <th class="col-sm-2">Preço (R$)</th>
                     <th class="col-sm-2">Sub-total(R$)</th>
@@ -19,7 +19,11 @@
                 @foreach(var item in Model.CarrinhoCompra.CarrinhosCompraItens)
                 {
                     <tr>
-                        <td class="text-center">@item.Jogo.ImagemUrl</td>
+                        <td class="text-center">
+                            <img src="@Url.Content(@item.Jogo.ImagemUrl)" alt="Imagem do Produto"
+                                 class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+                        </td>
+
                         <td class="text-center">@item.Jogo.Nome</td>
                         <td class="text-center">@item.Quantidade</td>
                         <td class="text-center">@item.Jogo.Preco.ToString("c")</td>
@@ -27,8 +31,11 @@
                         <td class="text-center">
                             @((item.Quantidade * item.Jogo.Preco).ToString("c"))
                         </td>
-                        <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinho"
-                        asp-route-id="@item.Jogo.Id"> <i class="bi bi-trash"></i> </a>
+                        <td class="text-center">
+                            <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra"
+                               asp-route-id="@item.Jogo.Id"> <i class="bi bi-trash"></i> </a>
+                        </td>
+                        
                     </tr>
                 }
             </tbody>
@@ -38,7 +45,7 @@
 
 <!--Cupom e preço-->
 <div class="row">
-    <div class="col-sm-8 col-lg-6">
+    <div class="col-sm-8 col-lg-4">
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -58,18 +65,19 @@
         </div>
     </div>
     <!--Preço do produto e Total-->
-
+    <div class="col-lg-2"></div>
     <div class="col-sm-4 col-lg-6">
         <div>
             <table class="table table-bordered">
                 <tbody>
                     <tr>
                         <td class="text-end"><strong>Total</strong></td>
-                        <td class="text-end">R$249</td>
+                        <td class="text-end">@Model.CarrinhoCompraTotal.ToString("C")</td>
                     </tr>
                 </tbody>
             </table>
             <div class="float-end">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Continuar comprando</a>
                 <a asp-controller="Checkout" asp-action="Checkout" class="btn btn-primary">Finalizar Pedido</a>
             </div>
         </div>

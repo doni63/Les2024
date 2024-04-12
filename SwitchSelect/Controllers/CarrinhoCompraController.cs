@@ -29,9 +29,9 @@ namespace SwitchSelect.Controllers
             return View(carrinhoComprasVM);
         }
 
-        public IActionResult AdicionarItemNoCarrinhoCompra(int jogoId)
+        public IActionResult AdicionarItemNoCarrinhoCompra(int id)
         {
-            var jogoSelecionado = _jogoRepositorio.Jogos.FirstOrDefault(j => j.Id == jogoId);
+            var jogoSelecionado = _jogoRepositorio.Jogos.FirstOrDefault(j => j.Id == id);
             if(jogoSelecionado != null)
             {
                 _carrinhoCompra.AdicionarAoCarrinho(jogoSelecionado);
@@ -39,14 +39,16 @@ namespace SwitchSelect.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult RemoverItemDoCarrinhoCompra(int jogoId)
+        public IActionResult RemoverItemDoCarrinhoCompra(int id)
         {
-            var jogoSelecionado = _jogoRepositorio.Jogos.FirstOrDefault(j => j.Id==jogoId);
+            var jogoSelecionado = _jogoRepositorio.Jogos.FirstOrDefault(j => j.Id == id);
             if(jogoSelecionado != null)
             {
                 _carrinhoCompra.RemoverDoCarrinho(jogoSelecionado);
             }
             return RedirectToAction("Index");
         }
+
+        
     }
 }

@@ -52,5 +52,12 @@ namespace SwitchSelect.Controllers
         {
             return View();
         }
+
+        public IActionResult Details(int id)
+        {
+            var jogo = _jogoRepositorio.Jogos.FirstOrDefault(c => c.Id == id);
+
+            return View(jogo);
+        }
     }
 }
